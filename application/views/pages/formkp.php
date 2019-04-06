@@ -67,7 +67,7 @@ a {
   color: white;
   padding: 12px 30px;
   cursor: pointer;
-  font-size: 20px;
+  font-size: 15px;
 }
 
 /* Darker background on mouse-over */
@@ -81,16 +81,11 @@ a {
 
 <div class="container container-utama">
 <div class="row content">
-          <div class="col-md-12">
-
-<p>Welcome to the JTPI application</p>
-          </div>
-      
           <form action=".php">
   <div class="container container-utama">
     <h1>Form Pengajuan KP JTPI</h1>
     <p>Silahkan isi form dengan lengkap</p>
-   <i> <p>Kemudian silahkan link download form yang terdapat dibawah</p></i>
+   <i><p>"Kemudian silahkan download form yang terdapat pada link dibawah"</p></i>
     <hr>
 
     <label for="nama"><b>Nama</b></label>
@@ -104,13 +99,15 @@ a {
     <input type="text" placeholder="Program Studi" name="prodi" required>
 
       <label for="tempatkp"><b>Tempat KP</b></label>
-    <input type="text" placeholder="Tempat KP" name="tempatkp" required>
+    <input type="text" placeholder="Nama Instansi / Perusahaan Tempat KP" name="tempatkp" required>
 
     <label for="alamatkp"><b>Alamat Tempat KP</b></label>
     <input type="text" placeholder="Alamat Tempat KP" name="alamatkp" required>
     
-    <button class="btn"><i class="fa fa-download"></i> Download</button>
+    <button class="btn"><i class="fa fa-download"></i> Download Form</button>
     <hr>
+    
+    <i><p style="color: #ea2727">/* Periksalah kembali bahwa data yang anda isi sudah benar dan valid</p></i>
     <button type="submit" class="registerbtn">Submit</button>
   </div>
 </form>
