@@ -49,6 +49,7 @@ hr {
   cursor: pointer;
   width: 100%;
   opacity: 0.9;
+  font-size:20px;
 }
 
 .registerbtn:hover {
@@ -58,6 +59,20 @@ hr {
 /* Add a blue text color to links */
 a {
   color: dodgerblue;
+}
+
+.btn {
+  background-color: DodgerBlue;
+  border: none;
+  color: white;
+  padding: 12px 30px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/* Darker background on mouse-over */
+.btn:hover {
+  background-color: RoyalBlue;
 }
 
 </style>
@@ -93,6 +108,8 @@ a {
 
     <label for="alamatkp"><b>Alamat Tempat KP</b></label>
     <input type="text" placeholder="Alamat Tempat KP" name="alamatkp" required>
+    
+    <button class="btn"><i class="fa fa-download"></i> Download</button>
     <hr>
     <button type="submit" class="registerbtn">Submit</button>
   </div>
