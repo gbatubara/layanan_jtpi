@@ -1,7 +1,17 @@
 <?php echo validation_errors(); ?>
 
 <?php echo form_open('users/register'); ?>
-	<div class="row">
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="http://localhost/projectppl/assets/css/cssregister.css">
+	<title></title>
+</head>
+<body>
+	<div class="container container-utama">
+<div class="row content">
+          <div class="col-md-12">
+	<div class="row" style="background-color: #ffff">
 		<div class="col-md-4 col-md-offset-4">
 			<h1 class="text-center"><?= $title; ?></h1>
 			<div class="form-group">
@@ -9,8 +19,8 @@
 				<input type="text" class="form-control" name="name" placeholder="Name">
 			</div>
 			<div class="form-group">
-				<label>Zipcode</label>
-				<input type="text" class="form-control" name="zipcode" placeholder="Zipcode">
+				<label>NIM</label>
+				<input type="text" class="form-control" name="zipcode" placeholder="NIM">
 			</div>
 			<div class="form-group">
 				<label>Email</label>
@@ -31,4 +41,9 @@
 			<button type="submit" class="btn btn-primary btn-block">Submit</button>
 		</div>
 	</div>
+</div>
+</div>
+</div>
+</body>
+</html>
 <?php echo form_close(); ?>

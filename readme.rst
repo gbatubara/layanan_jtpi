@@ -1,57 +1,70 @@
 ###################
-ciBlog
+What is CodeIgniter
 ###################
 
-This is a simple blog application built on CodeIgniter 3.x. It is from the YouTube series [Build a CodeIgniter PHP App](https://www.youtube.com/watch?v=I752ofYu7ag)
+CodeIgniter is an Application Development Framework - a toolkit - for people
+who build web sites using PHP. Its goal is to enable you to develop projects
+much faster than you could if you were writing code from scratch, by providing
+a rich set of libraries for commonly needed tasks, as well as a simple
+interface and logical structure to access these libraries. CodeIgniter lets
+you creatively focus on your project by minimizing the amount of code needed
+for a given task.
 
 *******************
-Usage
+Release Information
 *******************
 
-Create the database with the posts table and upload to your host
+This repo contains in-development code for future releases. To download the
+latest stable release please visit the `CodeIgniter Downloads
+<https://codeigniter.com/download>`_ page.
 
 **************************
-SQL
+Changelog and New Features
 **************************
 
-CREATE TABLE `posts` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `category_id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `title` varchar(255) NOT NULL,
-  `slug` varchar(255) NOT NULL,
-  `body` text NOT NULL,
-  `post_image` varchar(255) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB;
+You can find a list of all changes for each release in the `user
+guide change log <https://github.com/bcit-ci/CodeIgniter/blob/develop/user_guide_src/source/changelog.rst>`_.
 
+*******************
+Server Requirements
+*******************
 
-CREATE TABLE `categories` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `user_id` int(11) NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB;
+PHP version 5.6 or newer is recommended.
 
-CREATE TABLE `comments` (
-  `id` int(11) NOT NULL,
-  `post_id` int(11) NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `body` text NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB;
+It should work on 5.3.7 as well, but we strongly advise you NOT to run
+such old versions of PHP, because of potential security and performance
+issues, as well as missing features.
 
-CREATE TABLE `users` (
-  `id` int(11) NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `zipcode` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `username` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `register_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB;
+************
+Installation
+************
+
+Please see the `installation section <https://codeigniter.com/user_guide/installation/index.html>`_
+of the CodeIgniter User Guide.
+
+*******
+License
+*******
+
+Please see the `license
+agreement <https://github.com/bcit-ci/CodeIgniter/blob/develop/user_guide_src/source/license.rst>`_.
+
+*********
+Resources
+*********
+
+-  `User Guide <https://codeigniter.com/docs>`_
+-  `Language File Translations <https://github.com/bcit-ci/codeigniter3-translations>`_
+-  `Community Forums <http://forum.codeigniter.com/>`_
+-  `Community Wiki <https://github.com/bcit-ci/CodeIgniter/wiki>`_
+-  `Community Slack Channel <https://codeigniterchat.slack.com>`_
+
+Report security issues to our `Security Panel <mailto:security@codeigniter.com>`_
+or via our `page on HackerOne <https://hackerone.com/codeigniter>`_, thank you.
+
+***************
+Acknowledgement
+***************
+
+The CodeIgniter team would like to thank EllisLab, all the
+contributors to the CodeIgniter project and you, the CodeIgniter user.

@@ -23,7 +23,7 @@
 				// Set message
 				$this->session->set_flashdata('user_registered', 'You are now registered and can log in');
 
-				redirect('posts');
+				redirect('home');
 			}
 		}
 
@@ -39,7 +39,7 @@
 				$this->load->view('users/login', $data);
 				$this->load->view('templates/footer');
 			} else {
-				
+
 				// Get username
 				$username = $this->input->post('username');
 				// Get and encrypt the password
@@ -67,7 +67,7 @@
 					$this->session->set_flashdata('login_failed', 'Login is invalid');
 
 					redirect('users/login');
-				}		
+				}
 			}
 		}
 
