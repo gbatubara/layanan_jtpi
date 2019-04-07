@@ -2,15 +2,18 @@
 	class Users extends CI_Controller{
 		// Register user
 		public function register(){
-			$data['title'] = 'Sign Up';
+			$data['title'] = 'Daftar';
+			$data['nama_prodi'] = $this->db->query("SELECT * FROM prodi ORDER BY nama_prodi");
 
 			$this->form_validation->set_rules('name', 'Name', 'required');
-			$this->form_validation->set_rules('username', 'Username', 'required|callback_check_username_exists');
 			$this->form_validation->set_rules('email', 'Email', 'required|callback_check_email_exists');
 			$this->form_validation->set_rules('password', 'Password', 'required');
-			$this->form_validation->set_rules('password2', 'Confirm Password', 'matches[password]');
+			$this->form_validation->set_rules('password2', 'Konfirmasi Password', 'matches[password]');
 
 			if($this->form_validation->run() === FALSE){
+				//$nama_prodi = $this->db->query("SELECT * FROM prodi ORDER BY nama_prodi");
+				//$this->db->select('nama_prodi');
+				//$nama_prodi = $this->db->get('prodi');
 				$this->load->view('templates/header');
 				$this->load->view('users/register', $data);
 				$this->load->view('templates/footer');
@@ -21,17 +24,25 @@
 				$this->user_model->register($enc_password);
 
 				// Set message
-				$this->session->set_flashdata('user_registered', 'You are now registered and can log in');
+				$this->session->set_flashdata('info', '<div class="alert alert-block alert-success">
+						<button type="button" class="close" data-dismiss="alert">
+						<i class="fa fa-remove"></i></button>
+						<i class="fa fa-ok green"></i>
+						<strong class="green">
+						</strong>You are now registered and can log in </div');
 
-				redirect('home');
+				redirect('users/register');
 			}
 		}
 
 		// Log in user
 		public function login(){
-			$data['title'] = 'Sign In';
+			if($this->session->has_userdata('login')) {
+				redirect('home');
+			}
+			$data['title'] = 'Login';
 
-			$this->form_validation->set_rules('username', 'Username', 'required');
+			$this->form_validation->set_rules('email', 'Email', 'required');
 			$this->form_validation->set_rules('password', 'Password', 'required');
 
 			if($this->form_validation->run() === FALSE){
@@ -41,30 +52,38 @@
 			} else {
 
 				// Get username
-				$username = $this->input->post('username');
+				$email = $this->input->post('email');
 				// Get and encrypt the password
 				$password = md5($this->input->post('password'));
 
 				// Login user
-				$user_id = $this->user_model->login($username, $password);
+				$user_id = $this->user_model->login($email, $password);
 
 				if($user_id){
 					// Create session
 					$user_data = array(
-						'user_id' => $user_id,
-						'username' => $username,
+						'user_id' 	=> $user_id,
+						'email' 		=> $email,
 						'logged_in' => true
 					);
-
-					$this->session->set_userdata($user_data);
-
+					$this->session->set_userdata('login', $user_data);
 					// Set message
-					$this->session->set_flashdata('user_loggedin', 'You are now logged in');
+					$this->session->set_flashdata('info', '<div class="alert alert-block alert-success">
+							<button type="button" class="close" data-dismiss="alert">
+							<i class="fa fa-remove"></i></button>
+							<i class="fa fa-ok green"></i>
+							<strong class="green">
+							</strong>You are now logged in </div');
 
 					redirect('home');
 				} else {
 					// Set message
-					$this->session->set_flashdata('login_failed', 'Login is invalid');
+					$this->session->set_flashdata('info', '<div class="alert alert-block alert-warning">
+							<button type="button" class="close" data-dismiss="alert">
+							<i class="fa fa-remove"></i></button>
+							<i class="fa fa-ok red"></i>
+							<strong class="red">
+							</strong>Login is invalid </div');
 
 					redirect('users/login');
 				}
@@ -74,29 +93,35 @@
 		// Log user out
 		public function logout(){
 			// Unset user data
-			$this->session->unset_userdata('logged_in');
-			$this->session->unset_userdata('user_id');
-			$this->session->unset_userdata('username');
+			$this->session->unset_userdata('login');
+			/*$this->session->unset_userdata('email');
+			$this->session->unset_userdata('logged_in');*/
 
 			// Set message
-			$this->session->set_flashdata('user_loggedout', 'You are now logged out');
+			$this->session->set_flashdata('info', '<div class="alert alert-block alert-success">
+					<button type="button" class="close" data-dismiss="alert">
+					<i class="fa fa-remove"></i></button>
+					<i class="fa fa-ok green"></i>
+					<strong class="green">
+					</strong>You are now logged out </div');
 
 			redirect('users/login');
 		}
 
 		// Check if username exists
-		public function check_username_exists($username){
-			$this->form_validation->set_message('check_username_exists', 'That username is taken. Please choose a different one');
+		/*public function check_username_exists($username){
+			$this->form_validation->set_message('info', 'That username is taken. Please choose a different one');
 			if($this->user_model->check_username_exists($username)){
 				return true;
 			} else {
 				return false;
 			}
-		}
+		} */
 
 		// Check if email exists
 		public function check_email_exists($email){
-			$this->form_validation->set_message('check_email_exists', 'That email is taken. Please choose a different one');
+			$this->form_validation->set_message('info', '<div class="alert alert-block alert-warning">
+					<button type="button" class="close" data-dismiss="alert"></strong>That email is taken. Please choose a different one </div>');
 			if($this->user_model->check_email_exists($email)){
 				return true;
 			} else {

@@ -11,6 +11,9 @@
 	<link rel="shortcut icon" href="<?php echo base_url()?>assets/images/logo%20itera%20oke.png"/>
 	<title>Jurusan Teknologi Produksi, Industri, dan Informasi</title>
 
+	<link rel="stylesheet" href="assets/css/font-awesome/font-awesome.min.css">
+	<link rel="stylesheet" href="assets/css/font-awesome/font-awesome.css">
+
 	<link rel='stylesheet' id='open-sans-css'  href='https://fonts.googleapis.com/css?family=Open+Sans%3A300italic%2C400italic%2C600italic%2C300%2C400%2C600&#038;subset=latin%2Clatin-ext&#038;ver=4.4.2' type='text/css' media='all' />
 
 	<!-- jquery ui -->
@@ -65,11 +68,11 @@
           </ul>
 
           <ul class="nav navbar-nav navbar-right menu">
-           <?php if(!$this->session->userdata('logged_in')) : ?>
+           <?php if(!$this->session->userdata('login')) : ?>
              <li><a href="<?php echo base_url() ?>users/login">Login</a></li>
             <li><a href="<?php echo base_url() ?>users/register">Register</a></li>
-
           <?php endif; ?>
+					<li><a href="<?php echo base_url() ?>users/logout">Log out</a></li>
           </ul>
 
         </div>
@@ -78,21 +81,21 @@
   </div>
 
 
-      <!-- Flash messages -->
-      <?php if($this->session->flashdata('user_registered')): ?>
-        <?php echo '<p class="alert alert-success">'.$this->session->flashdata('user_registered').'</p>'; ?>
-      <?php endif; ?>
+	<!-- Flash messages -->
+	      <!--?php if($this->session->flashdata('user_registered')): ?-->
+	        <!--?php echo '<p class="alert alert-success">'.$this->session->flashdata('user_registered').'</p>'; ?-->
+	      <!--?php endif; ?-->
 
-      <?php if($this->session->flashdata('login_failed')): ?>
-        <?php echo '<p class="alert alert-danger">'.$this->session->flashdata('login_failed').'</p>'; ?>
-      <?php endif; ?>
+	      <!--?php if($this->session->flashdata('login_failed')): ?-->
+	        <!--?php echo '<p class="alert alert-danger">'.$this->session->flashdata('login_failed').'</p>'; ?-->
+	      <!--?php endif; ?-->
 
-      <?php if($this->session->flashdata('user_loggedin')): ?>
-        <?php echo '<p class="alert alert-success">'.$this->session->flashdata('user_loggedin').'</p>'; ?>
-      <?php endif; ?>
+	      <!--?php if($this->session->flashdata('user_loggedin')): ?-->
+	        <!--?php echo '<p class="alert alert-success">'.$this->session->flashdata('user_loggedin').'</p>'; ?-->
+	      <!--?php endif; ?-->
 
-       <?php if($this->session->flashdata('user_loggedout')): ?>
-        <?php echo '<p class="alert alert-success">'.$this->session->flashdata('user_loggedout').'</p>'; ?>
-      <?php endif; ?>
+	       <!--?php if($this->session->flashdata('user_loggedout')): ?-->
+	        <!--?php echo '<p class="alert alert-success">'.$this->session->flashdata('user_loggedout').'</p>'; ?-->
+	      <!--?php endif; ?-->
 </body>
 </html>
