@@ -26,7 +26,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	    $this->load->view('templates/sidebar');
 			$this->load->view('pages/'.$page, $data);
 	  }
-		public function formkp($page = 'formkp'){
+		/*public function formkp($page = 'formkp'){
 	    if(!file_exists(APPPATH.'views/pages/'.$page.'.php')){
 	      show_404();
 	    }
@@ -37,6 +37,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	    $this->load->view('templates/header');
 			$this->load->view('pages/'.$page, $data);
 			$this->load->view('templates/footer');
-	  }
+	  }*/
 
 	}

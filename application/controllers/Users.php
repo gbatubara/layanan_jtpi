@@ -128,4 +128,38 @@
 				return false;
 			}
 		}
+		//formkp
+		public function formkp(){
+			$data['title'] = 'formkp';
+			$data['nama_prodi'] = $this->db->query("SELECT * FROM prodi ORDER BY nama_prodi");
+			
+
+			$this->form_validation->set_rules('name', 'Name', 'required');
+			$this->form_validation->set_rules('nim', 'Nim', 'required');
+			$this->form_validation->set_rules('pilihanprodi', 'Program Studi', 'required');
+			$this->form_validation->set_rules('tempatkp', 'Tempat KP', 'required');
+			$this->form_validation->set_rules('alamatkp', 'Alamat Tempat KP', 'required');
+
+			if($this->form_validation->run() === FALSE){
+				$this->load->view('templates/header');
+				$this->load->view('users/formkp', $data);
+				$this->load->view('templates/footer');
+			} else {
+				$this->load->model('User_model');
+				$this->user_model->insertdata();
+
+				// Set message
+				$this->session->set_flashdata('info', '<div class="alert alert-block alert-success">
+						<button type="button" class="close" data-dismiss="alert">
+						<i class="fa fa-remove"></i></button>
+						<i class="fa fa-ok green"></i>
+						<strong class="green">
+						</strong>Kamu Sudah Terdaftar. Silahkan Klik Link di Bawah Untuk Mendownload Form.</div');
+
+				redirect('users/formkp');
+			}
+		}
+		public function download(){
+			force_download('download/Form_KP.docx', NULL);
+		}
 	}

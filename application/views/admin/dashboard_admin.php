@@ -126,30 +126,22 @@
           <a><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
-      <!-- search form -->
-      <form action="#" method="get" class="sidebar-form">
-        <div class="input-group">
-          <input type="text" name="q" class="form-control" placeholder="Search...">
-          <span class="input-group-btn">
-                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
-                </button>
-              </span>
-        </div>
-      </form>
-      <!-- /.search form -->
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
-        <li class="header">MAIN NAVIGATION</li>
-        <li class="active treeview">
-          <a href="<?php echo base_url()?>admin/dashboard_admin">
-            <i class="fa fa-dashboard" class="active"></i> <span>Dashboard</span>
+          <li class="header">MENU</li>
+          <li class="active treeview">
+            <a href="<?php echo base_url()?>admin/dashboard">
+            <i class="fa fa-dashboard"></i>
+            <span>Dashboard</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
           </a>
-        </li>
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-user-plus"></i> <span>Add admin</span>
-          </a>
-        </li>
+          <ul class="treeview-menu">
+            <li class="active"><a href="<?php echo base_url()?>admin/dashboard"><i class="fa fa-circle-o"></i> Data Table</a></li>
+            <li><a href="<?php echo base_url()?>admin/add"><i class="fa fa-circle-o"></i> Add Admin</a></li>
+          </ul>
+      </ul>
 
     </section>
     <!-- /.sidebar -->
@@ -202,7 +194,10 @@
     <td><?php echo $row->Prodi;?></td>
     <td><?php echo $row->Tempat_KP;?></td>
     <td><?php echo $row->Alamat_KP;?></td>
-    <td><?php echo $row->Aksi;?></td>
+    <td>
+    <a href="<?php echo site_url('admin//edit/'.$row->id) ?>"
+											 class="btn btn-small"><i class="fas fa-edit"></i> Edit</a>
+                     </td>
     </tr>
   <?php } ?>
         </div>

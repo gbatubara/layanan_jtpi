@@ -51,4 +51,16 @@
 		public function show_data(){
 			return $this->db->get('tbl_kp');
 		}
+		public function insertdata(){
+			$data = array(
+				'Nim'				=> $this->input->post('nim'),
+				'Nama'			=> $this->input->post('name'),
+				'Prodi'			=> $this->input->post('pilihanprodi'),
+				'Tempat_KP'	=> $this->input->post('tempatkp'),
+				'Alamat_KP'	=> $this->input->post('alamatkp')
+
+			);
+			// Insert formkp
+			return $this->db->insert('tbl_kp', $data);
+		}
 	}

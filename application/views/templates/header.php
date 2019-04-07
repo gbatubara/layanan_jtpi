@@ -63,8 +63,6 @@
             <div class="collapse navbar-collapse" id="myNavbar">
           <ul class="nav navbar-nav navbar-left menu">
             <li><a href="<?php echo base_url() ?>">Home</a></li>
-            <li><a href="<?php echo base_url()?>filter">validasi</a></li>
-						<li><a href="<?php echo base_url() ?>crudView">crud</a></li>
           </ul>
 
           <ul class="nav navbar-nav navbar-right menu">
