@@ -94,7 +94,7 @@ a {
     <label for="nim"><b>NIM</b></label>
     <input type="text" placeholder="NIM" name="nim" required>
 
-	
+  
     <label for="prodi"><b>Program Studi</b></label>
     <input type="text" placeholder="Program Studi" name="prodi" required>
 
