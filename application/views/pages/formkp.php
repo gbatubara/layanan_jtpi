@@ -2,7 +2,8 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" type="text/css" href="css/bootstrap/css/formkp.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css/formkp.css">
+
 </head>
 <body>
 
@@ -21,7 +22,7 @@
     <label for="nim"><b>NIM</b></label>
     <input type="text" placeholder="NIM" name="nim" required>
 
-  
+
     <label for="prodi"><b>Program Studi</b></label>
     <input type="text" placeholder="Program Studi" name="prodi" required>
 
@@ -30,10 +31,10 @@
 
     <label for="alamatkp"><b>Alamat Tempat KP</b></label>
     <input type="text" placeholder="Alamat Tempat KP" name="alamatkp" required>
-    
+
     <button class="btn"><i class="fa fa-download"></i> Download Form</button>
     <hr>
-    
+
     <i><p style="color: #ea2727">/* Periksalah kembali bahwa data yang anda isi sudah benar dan valid</p></i>
     <button type="submit" class="registerbtn">Submit</button>
   </div>
