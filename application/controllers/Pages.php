@@ -32,6 +32,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	    }
 
 	    $data['title'] = ucfirst($page);
+			$data['nama_prodi'] = $this->db->query("SELECT * FROM prodi ORDER BY nama_prodi");
 
 	    $this->load->view('templates/header');
 			$this->load->view('pages/'.$page, $data);
