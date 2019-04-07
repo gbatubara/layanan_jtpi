@@ -5,6 +5,8 @@ class Dashboard_admin extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('admin/dashboard_admin');
+		$this->load->model('user_model');
+		$data['isi'] = $this->user_model->show_data();
+		$this->load->view('admin/dashboard_admin' , $data);
 	}
 }
