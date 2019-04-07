@@ -51,21 +51,6 @@
 				<input type="password" class="form-control" name="password2" placeholder="Konfirmasi Password">
 			</div>
 			<button type="submit" id="btnsubmit" class="btn btn-primary btn-block">Submit</button>
-			<!--script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-			<script type="text/javascript">
-			$(function () {
-				$("#btnsubmit").click(function () {
-						var password = $("#password").val();
-						var confirmPassword = $("#password2").val();
-						if (password != confirmPassword) {
-								alert("Password Tidak Sama.");
-								$("#password2").focus();
-								return false;
-						}
-						return true;
-					});
-			});
-		</script-->
 		</div>
 	</div>
 </div>
