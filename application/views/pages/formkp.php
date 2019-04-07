@@ -12,12 +12,6 @@ body {
   box-sizing: border-box;
 }
 
-/* Add padding to containers */
-.container {
-  padding: 16px;
-  background-color: white;
-}
-
 /* Full-width input fields */
 input[type=text], input[type=password] {
   width: 100%;
@@ -94,7 +88,7 @@ a {
     <label for="nim"><b>NIM</b></label>
     <input type="text" placeholder="NIM" name="nim" required>
 
-	
+
     <label for="prodi"><b>Program Studi</b></label>
     <input type="text" placeholder="Program Studi" name="prodi" required>
 
@@ -103,10 +97,10 @@ a {
 
     <label for="alamatkp"><b>Alamat Tempat KP</b></label>
     <input type="text" placeholder="Alamat Tempat KP" name="alamatkp" required>
-    
+
     <button class="btn"><i class="fa fa-download"></i> Download Form</button>
     <hr>
-    
+
     <i><p style="color: #ea2727">/* Periksalah kembali bahwa data yang anda isi sudah benar dan valid</p></i>
     <button type="submit" class="registerbtn">Submit</button>
   </div>

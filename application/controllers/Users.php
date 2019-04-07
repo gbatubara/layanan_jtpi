@@ -73,9 +73,9 @@
 							<i class="fa fa-remove"></i></button>
 							<i class="fa fa-ok green"></i>
 							<strong class="green">
-							</strong>You are now logged in </div');
+							</strong>You are now logged in </div>');
 
-					redirect('home');
+					redirect('pages/dashboard');
 				} else {
 					// Set message
 					$this->session->set_flashdata('info', '<div class="alert alert-block alert-warning">

@@ -48,4 +48,7 @@
 				return false;
 			}
 		}
+		public function show_data(){
+			return $this->db->get('tbl_kp');
+		}
 	}

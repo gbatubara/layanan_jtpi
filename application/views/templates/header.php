@@ -36,7 +36,7 @@
 		    <div class="container ">
 		      <div class="row ">
 		        <div class="col-md-1">
-		            <a href="http://jtpi.itera.ac.id">
+		            <a href="<?php echo base_url()?>">
 		              <img src="<?php echo base_url()?>assets/images/logo%20itera%20oke.png" width="70px" style="margin-bottom:10px; "/>
 
 		            </a>
@@ -71,8 +71,11 @@
            <?php if(!$this->session->userdata('login')) : ?>
              <li><a href="<?php echo base_url() ?>users/login">Login</a></li>
             <li><a href="<?php echo base_url() ?>users/register">Register</a></li>
+          <?php else : ?>
+						<li><a href="<?php echo base_url() ?>pages/dashboard">Dashboard</a></li>
+						<li><a href="<?php echo base_url() ?>users/logout">Log out</a></li>
           <?php endif; ?>
-					<li><a href="<?php echo base_url() ?>users/logout">Log out</a></li>
+
           </ul>
 
         </div>
