@@ -1,4 +1,4 @@
-<?php echo form_open('users/formkp'); ?>
+<?php echo form_open('users/add_user'); ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,6 +9,7 @@
 <div class="container container-utama">
 <div class="row content">
   <div class="col-md-5">
+      <?php echo validation_errors(); ?>
     <h1>Form Pengajuan KP JTPI</h1>
     <p>Silahkan isi form dengan lengkap</p>
    <i><p>"Kemudian silahkan download form yang terdapat pada link dibawah"</p></i>
@@ -24,10 +25,10 @@
   </div>
 <div class="col-md-8 col-md-offset-2">
     <label><b>Name</b></label>
-    <input type="text" placeholder="Nama" class="form-control" name="name" required>
+    <input type="text" placeholder="Nama" class="form-control" name="name">
 
     <label><b>Nim</b></label>
-    <input type="number" placeholder="NIM" class="form-control" name="nim" required>
+    <input type="number" placeholder="NIM" class="form-control" name="nim">
 
 
     <label><b>Program Studi</b></label>
@@ -40,10 +41,10 @@
     </select>
 
     <label><b>Tempat KP</b></label>
-    <input type="text" placeholder="Nama Instansi / Perusahaan Tempat KP" class="form-control" name="tempatkp" required>
+    <input type="text" placeholder="Nama Instansi / Perusahaan Tempat KP" class="form-control" name="tempatkp">
 
     <label><b>Alamat Tempat KP</b></label>
-    <input type="text" placeholder="Alamat Tempat KP" class="form-control" name="alamatkp" required>
+    <input type="text" placeholder="Alamat Tempat KP" class="form-control" name="alamatkp">
 
 
         <button class="btn"><i class="fa fa-user-plus"></i> Ajukan Penambahan Angota</button>

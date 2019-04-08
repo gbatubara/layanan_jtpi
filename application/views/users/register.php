@@ -1,4 +1,3 @@
-<?php echo validation_errors(); ?>
 <?php echo form_open('users/register'); ?>
 <!DOCTYPE html>
 <html>
@@ -21,15 +20,15 @@
 			<h1 class="text-center"><?= $title; ?></h1>
 			<div class="form-group" class="col-log-9">
 				<label>Name</label>
-				<input type="text" class="form-control" name="name" placeholder="Name">
+				<input type="text" class="form-control" name="name" placeholder="Name" required>
 			</div>
 			<div class="form-group">
 				<label>Nim</label>
-				<input type="text" class="form-control" name="nim" placeholder="NIM">
+				<input type="text" class="form-control" name="nim" placeholder="NIM" required>
 			</div>
 			<div class="form-group">
 				<label>Email</label>
-				<input type="email" class="form-control" name="email" placeholder="Email">
+				<input type="email" class="form-control" name="email" placeholder="Email" required>
 			</div>
 			<div class="form-group">
 				<label>Program Studi</label>
@@ -43,11 +42,11 @@
 			</div>
 			<div class="form-group">
 				<label>Password</label>
-				<input type="password" class="form-control" name="password" placeholder="Password">
+				<input type="password" class="form-control" name="password" placeholder="Password" required>
 			</div>
 			<div class="form-group">
 				<label>Konfirmasi Password</label>
-				<input type="password" class="form-control" name="password2" placeholder="Konfirmasi Password">
+				<input type="password" class="form-control" name="password2" placeholder="Konfirmasi Password" required>
 			</div>
 			<button type="submit" id="btnsubmit" class="btn btn-primary btn-block">Submit</button>
 		</div>

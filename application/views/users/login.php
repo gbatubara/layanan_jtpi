@@ -20,6 +20,9 @@
         <label>Password</label>
 				<input type="password" name="password" class="form-control" placeholder="Enter Password" required autofocus>
 			</div>
+      <!--div class="form-group">
+        <?php //echo .$this->bil1." ".$this->operator->bil2." ? "; ?>
+      </div-->
 			<button type="submit" class="btn btn-primary btn-block">Login</button>
 		</div>
 	</div>

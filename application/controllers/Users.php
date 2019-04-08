@@ -41,6 +41,7 @@
 				redirect('home');
 			}
 			$data['title'] = 'Login';
+			//$data['captcha'] = $hasil;
 
 			$this->form_validation->set_rules('email', 'Email', 'required');
 			$this->form_validation->set_rules('password', 'Password', 'required');
@@ -107,16 +108,23 @@
 
 			redirect('users/login');
 		}
-
-		// Check if username exists
-		/*public function check_username_exists($username){
-			$this->form_validation->set_message('info', 'That username is taken. Please choose a different one');
-			if($this->user_model->check_username_exists($username)){
-				return true;
-			} else {
-				return false;
+		public function captcha()
+		{
+			// code...
+			$listoperator = array('+', '-', 'x');
+			$this->bil1 = rand(0, 20);
+			$this->bil2 = rand(0, 20);
+			$this->operator = $listoperator[rand(0, 2)];
+			if ($this->operator == '+'){
+				 return $hasil = $this->bil1 + $this->bil2;
+			 }
+			else if ($this->operator == '-') {
+				return $hasil = $this->bil1 - $this->bil2;
 			}
-		} */
+			else if ($this->operator == 'x') {
+				return $hasil = $this->bil1 * $this->bil2;
+			}
+		}
 
 		// Check if email exists
 		public function check_email_exists($email){
@@ -132,7 +140,7 @@
 		public function formkp(){
 			$data['title'] = 'formkp';
 			$data['nama_prodi'] = $this->db->query("SELECT * FROM prodi ORDER BY nama_prodi");
-			
+
 
 			$this->form_validation->set_rules('name', 'Name', 'required');
 			$this->form_validation->set_rules('nim', 'Nim', 'required');
