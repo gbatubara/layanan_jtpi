@@ -62,7 +62,7 @@
             <div class="collapse navbar-collapse" id="myNavbar">
           <ul class="nav navbar-nav navbar-left menu">
             <li><a href="<?php echo base_url() ?>">Home</a></li>
-						<li><a href="<?php echo base_url(); ?>filter">validasi</a></li>
+						<li><a href="<?php echo base_url(); ?>filter">Validasi</a></li>
 			<li><a href="#">Profil</a></li>
 			<li><a href="#">Program Studi</a></li>
 			<li><a href="<?php echo base_url() ?>kalenderakademik">Kalender Akademik</a></li>
