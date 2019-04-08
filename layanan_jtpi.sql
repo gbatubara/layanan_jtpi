@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 08, 2019 at 05:00 AM
+-- Generation Time: Apr 08, 2019 at 09:24 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.2
 
@@ -29,9 +29,16 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `admin` (
-  `user` varchar(35) NOT NULL,
+  `email` varchar(35) NOT NULL,
   `password` varchar(35) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`email`, `password`) VALUES
+('adminjtpi@jtpi.itera.ac.id', '0a6d9a11baa9729b80784a5bb3f4f278');
 
 -- --------------------------------------------------------
 
@@ -127,9 +134,7 @@ CREATE TABLE `tbl_kp` (
 --
 
 INSERT INTO `tbl_kp` (`id`, `Nim`, `Nama`, `kode_prodi`, `Tempat_KP`, `Alamat_KP`, `Aksi`) VALUES
-(1, 14116039, 'Gabriel Batubaa', 3, 'Kostan', 'Jl. Lapas', 0),
-(3, 1234567, 'adfdgf', 2, 'aasdfgh', 'jhgfds', 0),
-(4, 1234434, 'hgffdda', 9, 'asdghj', 'ygfcx', 0);
+(1, 14116039, 'Gabriel Batubara', 3, 'Kostan', 'Jl. Lapas', 1);
 
 --
 -- Indexes for dumped tables
@@ -139,7 +144,7 @@ INSERT INTO `tbl_kp` (`id`, `Nim`, `Nama`, `kode_prodi`, `Tempat_KP`, `Alamat_KP
 -- Indexes for table `admin`
 --
 ALTER TABLE `admin`
-  ADD PRIMARY KEY (`user`);
+  ADD PRIMARY KEY (`email`);
 
 --
 -- Indexes for table `mahasiswa`
@@ -176,7 +181,7 @@ ALTER TABLE `tbl_kp`
 -- AUTO_INCREMENT for table `tbl_kp`
 --
 ALTER TABLE `tbl_kp`
-  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Constraints for dumped tables
