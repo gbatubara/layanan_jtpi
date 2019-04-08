@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 07, 2019 at 10:39 AM
+-- Generation Time: Apr 08, 2019 at 05:00 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.2
 
@@ -44,14 +44,14 @@ CREATE TABLE `mahasiswa` (
   `email` varchar(35) DEFAULT NULL,
   `password` varchar(35) DEFAULT NULL,
   `nama_mhs` varchar(35) DEFAULT NULL,
-  `prodi` int(6) DEFAULT NULL
+  `kode_prodi` int(6) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `mahasiswa`
 --
 
-INSERT INTO `mahasiswa` (`nim`, `email`, `password`, `nama_mhs`, `prodi`) VALUES
+INSERT INTO `mahasiswa` (`nim`, `email`, `password`, `nama_mhs`, `kode_prodi`) VALUES
 (14116039, 'gabrielbatubara91@gmail.com', '202cb962ac59075b964b07152d234b70', 'gabriel', 3);
 
 -- --------------------------------------------------------
@@ -116,7 +116,7 @@ CREATE TABLE `tbl_kp` (
   `id` int(6) NOT NULL,
   `Nim` int(10) DEFAULT NULL,
   `Nama` varchar(30) DEFAULT NULL,
-  `Prodi` int(10) DEFAULT NULL,
+  `kode_prodi` int(10) DEFAULT NULL,
   `Tempat_KP` varchar(50) DEFAULT NULL,
   `Alamat_KP` varchar(50) DEFAULT NULL,
   `Aksi` int(6) DEFAULT '0'
@@ -126,8 +126,10 @@ CREATE TABLE `tbl_kp` (
 -- Dumping data for table `tbl_kp`
 --
 
-INSERT INTO `tbl_kp` (`id`, `Nim`, `Nama`, `Prodi`, `Tempat_KP`, `Alamat_KP`, `Aksi`) VALUES
-(1, 14116039, 'Gabriel Batubaa', 3, 'Kostan', 'Jl. Lapas', 0);
+INSERT INTO `tbl_kp` (`id`, `Nim`, `Nama`, `kode_prodi`, `Tempat_KP`, `Alamat_KP`, `Aksi`) VALUES
+(1, 14116039, 'Gabriel Batubaa', 3, 'Kostan', 'Jl. Lapas', 0),
+(3, 1234567, 'adfdgf', 2, 'aasdfgh', 'jhgfds', 0),
+(4, 1234434, 'hgffdda', 9, 'asdghj', 'ygfcx', 0);
 
 --
 -- Indexes for dumped tables
@@ -144,7 +146,7 @@ ALTER TABLE `admin`
 --
 ALTER TABLE `mahasiswa`
   ADD PRIMARY KEY (`nim`),
-  ADD KEY `prodi` (`prodi`);
+  ADD KEY `prodi` (`kode_prodi`);
 
 --
 -- Indexes for table `prodi`
@@ -163,8 +165,7 @@ ALTER TABLE `status`
 --
 ALTER TABLE `tbl_kp`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `Nim` (`Nim`),
-  ADD KEY `tbl_kp_ibfk_2` (`Prodi`),
+  ADD KEY `tbl_kp_ibfk_2` (`kode_prodi`),
   ADD KEY `Aksi` (`Aksi`);
 
 --
@@ -175,7 +176,7 @@ ALTER TABLE `tbl_kp`
 -- AUTO_INCREMENT for table `tbl_kp`
 --
 ALTER TABLE `tbl_kp`
-  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables
@@ -185,14 +186,13 @@ ALTER TABLE `tbl_kp`
 -- Constraints for table `mahasiswa`
 --
 ALTER TABLE `mahasiswa`
-  ADD CONSTRAINT `mahasiswa_ibfk_1` FOREIGN KEY (`prodi`) REFERENCES `prodi` (`kode_prodi`) ON DELETE CASCADE;
+  ADD CONSTRAINT `mahasiswa_ibfk_1` FOREIGN KEY (`kode_prodi`) REFERENCES `prodi` (`kode_prodi`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `tbl_kp`
 --
 ALTER TABLE `tbl_kp`
-  ADD CONSTRAINT `tbl_kp_ibfk_1` FOREIGN KEY (`Nim`) REFERENCES `mahasiswa` (`nim`) ON DELETE CASCADE,
-  ADD CONSTRAINT `tbl_kp_ibfk_2` FOREIGN KEY (`Prodi`) REFERENCES `prodi` (`kode_prodi`) ON DELETE CASCADE,
+  ADD CONSTRAINT `tbl_kp_ibfk_2` FOREIGN KEY (`kode_prodi`) REFERENCES `prodi` (`kode_prodi`) ON DELETE CASCADE,
   ADD CONSTRAINT `tbl_kp_ibfk_3` FOREIGN KEY (`Aksi`) REFERENCES `status` (`id`) ON DELETE CASCADE;
 COMMIT;
 

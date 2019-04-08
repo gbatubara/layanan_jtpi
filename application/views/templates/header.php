@@ -1,5 +1,4 @@
 <html>
-
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -67,7 +66,6 @@
 			<li><a href="#">Program Studi</a></li>
 			<li><a href="<?php echo base_url() ?>kalenderakademik">Kalender Akademik</a></li>
           </ul>
-
           <ul class="nav navbar-nav navbar-right menu">
            <?php if(!$this->session->userdata('login')) : ?>
              <li><a href="<?php echo base_url() ?>users/login">Login</a></li>
@@ -83,7 +81,6 @@
       </div>
     </nav>
   </div>
-
 
 	<!-- Flash messages -->
 	      <!--?php if($this->session->flashdata('user_registered')): ?-->

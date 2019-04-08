@@ -46,9 +46,9 @@
     <input type="text" placeholder="Alamat Tempat KP" class="form-control" name="alamatkp" required>
 
 
-        <button class="btn"><i class="fa fa-user-plus"></i> Ajukan Penambahan Angota</button>
+        <i><link><a href="<?php echo base_url() ?>users/add_user/"> Ajukan Penambahan Angota</a></i></link>
         &emsp;
-        <a href="<?php echo base_url() ?>users/download/">Download file</a>
+        <i><a href="<?php echo base_url() ?>users/download/">Download file</a></i>
 
     <hr>
     <i><p style="color: #ea2727">/* Periksalah kembali bahwa data yang anda isi sudah benar dan valid</p></i>

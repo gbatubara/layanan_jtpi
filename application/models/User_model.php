@@ -6,7 +6,7 @@
 				'nama_mhs'	=> $this->input->post('name'),
 				'nim'				=> $this->input->post('nim'),
 				'email' 		=> $this->input->post('email'),
-				'prodi'			=> $this->input->post('pilihanprodi'),
+				'kode_prodi'=> $this->input->post('pilihanprodi'),
         'password'	=> $enc_password
 
 			);
@@ -29,16 +29,6 @@
 			}
 		}
 
-		// Check username exists
-		/*public function check_username_exists($username){
-			$query = $this->db->get_where('mahasiswa', array('username' => $username));
-			if(empty($query->row_array())){
-				return true;
-			} else {
-				return false;
-			}
-		}*/
-
 		// Check email exists
 		public function check_email_exists($email){
 			$query = $this->db->get_where('mahasiswa', array('email' => $email));
@@ -49,13 +39,16 @@
 			}
 		}
 		public function show_data(){
-			return $this->db->get('tbl_kp');
+			$this->db->select('*');
+			$this->db->from('tbl_kp');
+			$this->db->join('prodi', 'tbl_kp.kode_prodi = prodi.kode_prodi');
+			return $this->db->get();
 		}
 		public function insertdata(){
 			$data = array(
 				'Nim'				=> $this->input->post('nim'),
 				'Nama'			=> $this->input->post('name'),
-				'Prodi'			=> $this->input->post('pilihanprodi'),
+				'kode_prodi'			=> $this->input->post('pilihanprodi'),
 				'Tempat_KP'	=> $this->input->post('tempatkp'),
 				'Alamat_KP'	=> $this->input->post('alamatkp')
 

@@ -162,7 +162,7 @@
 						<i class="fa fa-remove"></i></button>
 						<i class="fa fa-ok green"></i>
 						<strong class="green">
-						</strong>Kamu Sudah Terdaftar. Silahkan Klik Link di Bawah Untuk Mendownload Form.</div');
+						</strong>Kamu Sudah Terdaftar. Silahkan Klik Link di Bawah Untuk Mendownload Form.</div>');
 
 				redirect('users/formkp');
 			}

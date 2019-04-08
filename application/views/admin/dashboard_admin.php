@@ -83,7 +83,7 @@
                 </p>
               </li>
               <!-- Menu Body -->
-              <li class="user-body">
+              <!--li class="user-body">
                 <div class="row">
                   <div class="col-xs-4 text-center">
                     <a href="#">Followers</a>
@@ -94,7 +94,7 @@
                   <div class="col-xs-4 text-center">
                     <a href="#">Friends</a>
                   </div>
-                </div>
+                </div-->
                 <!-- /.row -->
               </li>
               <!-- Menu Footer-->
@@ -103,7 +103,7 @@
                   <a href="#" class="btn btn-default btn-flat">Profile</a>
                 </div>
                 <div class="pull-right">
-                  <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                  <a href="<?php echo base_url()?>admin/logout" class="btn btn-default btn-flat">Sign out</a>
                 </div>
               </li>
             </ul>
@@ -191,12 +191,20 @@
       ?>
     <td><?php echo $row->Nim;?></td>
     <td><?php echo $row->Nama;?></td>
-    <td><?php echo $row->Prodi;?></td>
+    <td><?php echo $row->nama_prodi;?></td>
     <td><?php echo $row->Tempat_KP;?></td>
     <td><?php echo $row->Alamat_KP;?></td>
     <td>
-    <a href="<?php echo site_url('admin//edit/'.$row->id) ?>"
-											 class="btn btn-small"><i class="fas fa-edit"></i> Edit</a>
+  <div>
+  <select name="status_bayar" id="status_bayar" class="texbox" class="span4" value="<?php echo $status_bayar; ?>">
+  <option>--Pilih--</option>
+  <option value="1">Diterima</option>
+  <option value="2">Ditolak</option>
+  <option value="0">Diproses</option>
+  </select>
+</div>
+    <!--a href="<?php echo site_url('admin/edit/'.$row->id) ?>"
+											 class="btn btn-small"><i class="fas fa-edit"></i> Edit</a-->
                      </td>
     </tr>
   <?php } ?>
