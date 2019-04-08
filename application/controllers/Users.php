@@ -2,8 +2,11 @@
 	class Users extends CI_Controller{
 		// Register user
 		public function register(){
+			if($this->session->has_userdata('login')) {
+				redirect('pages/dashboard');
+			}
 			$data['title'] = 'Daftar';
-			$data['nama_prodi'] = $this->db->query("SELECT * FROM prodi ORDER BY nama_prodi");
+			$data['nama_prodi'] = $this->user_model->getdata();
 
 			$this->form_validation->set_rules('name', 'Name', 'required');
 			$this->form_validation->set_rules('email', 'Email', 'required|callback_check_email_exists');
@@ -139,7 +142,7 @@
 		//formkp
 		public function formkp(){
 			$data['title'] = 'formkp';
-			$data['nama_prodi'] = $this->db->query("SELECT * FROM prodi ORDER BY nama_prodi");
+			$data['nama_prodi'] = $this->user_model->getdata();
 
 
 			$this->form_validation->set_rules('name', 'Name', 'required');

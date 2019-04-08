@@ -44,6 +44,9 @@
 			$this->db->join('prodi', 'tbl_kp.kode_prodi = prodi.kode_prodi');
 			return $this->db->get();
 		}
+		public function getdata(){
+			return $this->db->query("SELECT * FROM prodi ORDER BY nama_prodi");
+		}
 		public function insertdata(){
 			$data = array(
 				'Nim'				=> $this->input->post('nim'),

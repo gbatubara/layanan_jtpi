@@ -81,7 +81,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		// Log user out
 		public function logout(){
 			// Unset user data
-			$this->session->unset_userdata('login');
+			$this->session->unset_userdata('login_admin');
 			/*$this->session->unset_userdata('email');
 			$this->session->unset_userdata('logged_in');*/
 
