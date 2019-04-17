@@ -44,6 +44,12 @@
 			$this->db->join('prodi', 'tbl_kp.kode_prodi = prodi.kode_prodi');
 			return $this->db->get();
 		}
+		public function show_data2(){
+			$this->db->select('*');
+			$this->db->from('tbl_perizinan');
+			$this->db->join('prodi', 'tbl_perizinan.kode_prodi = prodi.kode_prodi');
+			return $this->db->get();
+		}
 		public function getdata(){
 			return $this->db->query("SELECT * FROM prodi ORDER BY nama_prodi");
 		}
@@ -51,12 +57,29 @@
 			$data = array(
 				'Nim'				=> $this->input->post('nim'),
 				'Nama'			=> $this->input->post('name'),
-				'kode_prodi'			=> $this->input->post('pilihanprodi'),
+				'kode_prodi'=> $this->input->post('pilihanprodi'),
 				'Tempat_KP'	=> $this->input->post('tempatkp'),
 				'Alamat_KP'	=> $this->input->post('alamatkp')
 
 			);
 			// Insert formkp
 			return $this->db->insert('tbl_kp', $data);
+		}
+		public function insertdataizin(){
+			$data = array(
+				'nama'					=> $this->input->post('name'),
+				'nim'						=> $this->input->post('nim'),
+				'kode_prodi'		=> $this->input->post('pilihanprodi'),
+				'nama_kegiatan'	=> $this->input->post('namakegiatan'),
+				'agenda'				=> $this->input->post('agenda'),
+				'tempat'				=> $this->input->post('tempat'),
+				'tanggal'				=> $this->input->post('tanggal'),
+				'waktu'					=> $this->input->post('waktu'),
+				'namapj'				=> $this->input->post('namapj'),
+				'jabatanpj'			=> $this->input->post('jabatanpj')
+
+			);
+			// Insert formkp
+			return $this->db->insert('tbl_perizinan', $data);
 		}
 	}

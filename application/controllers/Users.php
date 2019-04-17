@@ -173,4 +173,39 @@
 		public function download(){
 			force_download('download/Form_KP.docx', NULL);
 		}
+	public function izinkegiatan(){
+		$data['title'] = 'formizinkegiatan';
+		$data['nama_prodi'] = $this->user_model->getdata();
+
+
+		$this->form_validation->set_rules('name', 'Name', 'required');
+		$this->form_validation->set_rules('nim', 'Nim', 'required');
+		$this->form_validation->set_rules('pilihanprodi', 'Program Studi', 'required');
+		$this->form_validation->set_rules('namakegiatan', 'Nama Kegiatan', 'required');
+		$this->form_validation->set_rules('agenda', 'Agenda Kegiatan', 'required');
+		$this->form_validation->set_rules('tempat', 'Tempat Pelaksanaan', 'required');
+		$this->form_validation->set_rules('tanggal', 'Tanggal Pelaksanaan', 'required');
+		$this->form_validation->set_rules('waktu', 'waktu Pelaksanaan', 'required');
+		$this->form_validation->set_rules('namapj', 'Nama Penanggung Jawab', 'required');
+		$this->form_validation->set_rules('jabatanpj', 'Jabatan Penanggung Jawab', 'required');
+
+		if($this->form_validation->run() === FALSE){
+			$this->load->view('templates/header');
+			$this->load->view('users/formizinkegiatan', $data);
+			$this->load->view('templates/footer');
+		} else {
+			$this->load->model('User_model');
+			$this->user_model->insertdataizin();
+
+			// Set message
+			$this->session->set_flashdata('info', '<div class="alert alert-block alert-success">
+					<button type="button" class="close" data-dismiss="alert">
+					<i class="fa fa-remove"></i></button>
+					<i class="fa fa-ok green"></i>
+					<strong class="green">
+					</strong>Kamu Sudah Terdaftar. Silahkan Klik Link di Bawah Untuk Mendownload Form.</div>');
+
+			redirect('users/izinkegiatan');
+		}
 	}
+}

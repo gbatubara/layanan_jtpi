@@ -27,11 +27,11 @@
     <input type="text" placeholder="Nama" class="form-control" name="name" required>
 
     <label><b>Nim</b></label>
-    <input type="number" placeholder="NIM" class="form-control" name="nim" required>
+    <input type="text" placeholder="NIM" class="form-control" name="nim" required>
 
 
     <label><b>Program Studi</b></label>
-    <select name="pilihanprodi" id="pilihanprodi" class="form-control">
+    <select name="pilihanprodi" id="pilihanprodi" class="form-control" required>
     <option value='' disabled selected>--Pilih--</option>
     <?php
     foreach ($nama_prodi->result() as $row_prodi) {

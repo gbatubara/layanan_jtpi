@@ -196,12 +196,24 @@
     <td><?php echo $row->Alamat_KP;?></td>
     <td>
   <div>
-  <select name="status_bayar" id="status_bayar" class="texbox" class="span4" value="<?php echo $status_bayar; ?>">
+  <select name="status" id="status" class="texbox" class="span4" value="<?php echo $status; ?>">
   <option>--Pilih--</option>
   <option value="1">Diterima</option>
   <option value="2">Ditolak</option>
   <option value="0">Diproses</option>
+  <?php
+  if ($row->Aksi == 0) {
+    echo $status Diproses;
+  }
+  elseif ($row->Aksi == 1) {
+    $status = '<label class="label label-success">Diterima</label>';
+  }
+  else {
+    $status = '<label class="label label-danger">Ditolak</label>';
+  }
+  ?>
   </select>
+
 </div>
     <!--a href="<?php echo site_url('admin/edit/'.$row->id) ?>"
 											 class="btn btn-small"><i class="fas fa-edit"></i> Edit</a-->
