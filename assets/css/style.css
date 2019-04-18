@@ -9,7 +9,7 @@
 
 body{
     font-family: 'Open Sans', sans-serif;
-    background: url('../img/bgh.jpg');
+    background: url('../images/bgh.jpg');
     padding-top: 20px;
     padding-bottom: 20px;
 }
@@ -181,7 +181,7 @@ body{
     background: #e6e9e9;
 }
 .list ul li{
-    background: url('../img/li.png');
+    background: url('../images/li.png');
     /*padding: 10px;*/
     border-bottom:dotted thin #b3b3b3;
     list-style: none;
@@ -212,7 +212,7 @@ body{
     /*background: #e6e9e9;*/
 }
 .listputih ul li{
-    background: url('../img/li.png');
+    background: url('../images/li.png');
     /*padding: 10px;*/
     border-bottom:dotted thin #b3b3b3;
     list-style: none;
