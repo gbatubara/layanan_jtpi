@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 	class Admin extends CI_Controller{
-		public function dashboard($page = 'dashboard_admin'){
+		public function t_kp($page = 'adminkp'){
 			if(!$this->session->has_userdata('login_admin')) {
 				redirect('admin/login');
 			}
@@ -13,20 +13,29 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   		$data['isi'] = $this->admin_model->show_data();
 			$data['title'] = ucfirst($page);
 
+			$this->load->view('admin/header');
+			$this->load->view('admin/sidebar');
 			$this->load->view('admin/'.$page, $data);
 		}
-    /*public function login($page = 'login_admin'){
-      if(!file_exists(APPPATH.'views/admin/'.$page.'.php')){
-        show_404();
-      }
+		public function t_perizinan($page = 'adminperizinan'){
+			if(!$this->session->has_userdata('login_admin')) {
+				redirect('admin/login');
+			}
+			if(!file_exists(APPPATH.'views/admin/'.$page.'.php')){
+				show_404();
+			}
 
-      $data['title'] = ucfirst($page);
+      $this->load->model('admin_model');
+  		$data['isi'] = $this->admin_model->show_data2();
+			$data['title'] = ucfirst($page);
 
-      $this->load->view('admin/'.$page, $data);
-    }*/
+			$this->load->view('admin/header');
+			$this->load->view('admin/sidebar2');
+			$this->load->view('admin/'.$page, $data);
+		}
 		public function login(){
 			if($this->session->has_userdata('login_admin')) {
-				redirect('admin/dashboard');
+				redirect('admin/t_kp');
 			}
 			$data['title'] = 'Login Admin';
 			//$data['captcha'] = $hasil;
@@ -63,7 +72,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<strong class="green">
 							</strong>You are now logged in </div>');
 
-					redirect('admin/dashboard');
+					redirect('admin/t_kp');
 				} else {
 					// Set message
 					$this->session->set_flashdata('info', '<div class="alert alert-block alert-warning">
@@ -102,6 +111,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
       $data['title'] = ucfirst($page);
 
+			$this->load->view('admin/header');
+			$this->load->view('admin/sidebar1');
       $this->load->view('admin/'.$page, $data);
     }
 }

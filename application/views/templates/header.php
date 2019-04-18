@@ -61,19 +61,19 @@
         <div class="container">
             <div class="collapse navbar-collapse" id="myNavbar">
           <ul class="nav navbar-nav navbar-left menu">
-            <li><a href="<?php echo base_url() ?>">Home</a></li>
+            <li><a href="<?php echo base_url() ?>"><i class="glyphicon glyphicon-home"></i> Home</a></li>
 						<li><a href="<?php echo base_url(); ?>filter">Validasi</a></li>
-			<li><a href="#">Profil</a></li>
+			<li><a href="#"><i class="glyphicon glyphicon-user"></i> Profil</a></li>
 			<li><a href="#">Program Studi</a></li>
-			<li><a href="<?php echo base_url() ?>kalenderakademik">Kalender Akademik</a></li>
+			<li><a href="<?php echo base_url() ?>kalenderakademik"><i class="glyphicon glyphicon-calendar"></i> Kalender Akademik</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right menu">
            <?php if(!$this->session->userdata('login')) : ?>
-             <li><a href="<?php echo base_url() ?>users/login">Login</a></li>
-            <li><a href="<?php echo base_url() ?>users/register">Register</a></li>
+             <li><a href="<?php echo base_url() ?>users/login"><i class="glyphicon glyphicon-log-in"></i> Login</a></li>
+            <li><a href="<?php echo base_url() ?>users/register"><i class="glyphicon glyphicon-user"></i> Register</a></li>
           <?php else : ?>
-						<li><a href="<?php echo base_url() ?>pages/dashboard">Dashboard</a></li>
-						<li><a href="<?php echo base_url() ?>users/logout">Log out</a></li>
+						<li><a href="<?php echo base_url() ?>pages/dashboard"><i class="glyphicon glyphicon-user"></i> Dashboard</a></li>
+						<li><a href="<?php echo base_url() ?>users/logout"><i class="glyphicon glyphicon-log-out"></i> Log out</a></li>
           <?php endif; ?>
 
           </ul>

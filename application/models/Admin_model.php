@@ -41,4 +41,10 @@
 			$this->db->join('prodi', 'tbl_kp.kode_prodi = prodi.kode_prodi');
 			return $this->db->get();
 		}
+		public function show_data2(){
+			$this->db->select('*');
+			$this->db->from('tbl_perizinan');
+			$this->db->join('prodi', 'tbl_perizinan.kode_prodi = prodi.kode_prodi');
+			return $this->db->get();
+		}
 	}

@@ -17,6 +17,7 @@
     <link rel="shortcut icon" href="<?php echo base_url()?>assets/img/logo%20itera%20oke.png">
     <link rel="stylesheet" href="<?php echo base_url()?>assets/css/chosen.css">
 
+
   <style type="text/css"></style></head>
  <body>
     <div class="container" style="background:#fff;margin-top:0px; padding-top:30px; padding-bottom:15px; border-bottom:solid thin #e8e8e8; box-shadow:         0px -6px 22px 0px rgba(0, 0, 0, 0.2); border-radius: 3px;">
@@ -54,13 +55,10 @@
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
          <ul class="nav navbar-nav navbar-left menu">
-            <li><a href="<?php echo base_url() ?>">Home</a></li>
+            <li><a href="<?php echo base_url() ?>admin/t_kp"><i class="glyphicon glyphicon-home"></i> Home</a></li>
           </ul>
-
           <ul class="nav navbar-nav navbar-right menu">
-
-          <?php endif; ?>
-          <li><a href="<?php echo base_url() ?>users/logout">Log out</a></li>
+          <li><a href="<?php echo base_url() ?>admin/logout"><i class="glyphicon glyphicon-log-out"></i> Log out</a></li>
           </ul>
       </div>
   </nav>

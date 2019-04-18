@@ -48,7 +48,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$data['isi'] = $this->user_model->show_data2();
 
 	    $this->load->view('templates/header1');
-	    $this->load->view('templates/sidebar');
+	    $this->load->view('templates/sidebar1');
 			$this->load->view('pages/'.$page, $data);
 	  }
 	}

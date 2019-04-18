@@ -54,7 +54,7 @@
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
          <ul class="nav navbar-nav navbar-left menu">
-            <li><a href="<?php echo base_url() ?>">Home</a></li>
+            <li><a href="<?php echo base_url() ?>"><i class="glyphicon glyphicon-home"></i> Home</a></li>
           </ul>
 
           <ul class="nav navbar-nav navbar-right menu">
@@ -63,7 +63,7 @@
             <li><a href="<?php echo base_url() ?>users/register">Register</a></li>
 
           <?php endif; ?>
-          <li><a href="<?php echo base_url() ?>users/logout">Log out</a></li>
+          <li><a href="<?php echo base_url() ?>users/logout"><i class="glyphicon glyphicon-log-out"></i> Log out</a></li>
           </ul>
       </div>
   </nav>

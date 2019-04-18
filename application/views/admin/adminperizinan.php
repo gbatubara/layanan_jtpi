@@ -14,47 +14,46 @@
     <div class="box-body">
         <!--Konten diisi di dalam sini-->
         <table class="table">
-      <tr>
-        <th>Nim</th>
-        <th>Nama</th>
-        <th>Program Studi</th>
-        <th>Nama Kegiatan</th>
-        <th>Tempat Kegiatan</th>
-        <th>Waktu Kegiatan</th>
-        <th>Aksi</th>
-      </tr>
+          <tr>
+          <th>No</th>
+          <th>Nim</th>
+          <th>Nama</th>
+          <th>Program Studi</th>
+          <th>Nama Kegiatan</th>
+          <th>Tempat Kegiatan</th>
+          <th>Waktu Kegiatan</th>
+          <th>Status</th>
+          </tr>
     </thead>
     <!-- /.box-body -->
     <?php
+    $no=1;
     foreach ($isi->result() as $row) {
       ?>
-
-    <td><?php echo $row->Nim;?></td>
-    <td><?php echo $row->Nama;?></td>
-    <td><?php echo $row->nama_prodi;?></td>
-    <td><?php echo $row->Tempat_KP;?></td>
-    <td><?php echo $row->Alamat_KP;?></td>
-    <td>
-  <div>
+      <td><?php echo $no++;?></td>
+      <td><?php echo $row->nim;?></td>
+      <td><?php echo $row->nama;?></td>
+      <td><?php echo $row->nama_prodi;?></td>
+      <td><?php echo $row->nama_kegiatan;?></td>
+      <td><?php echo $row->tempat;?></td>
+      <td><?php echo $row->tanggal." ".$row->waktu;?></td>
+      <td>  <?php
+        if ($row->aksi == 0) {
+          echo $status = '<label class="label label-success">Diproses</label>';
+        }
+        elseif ($row->aksi == 1) {
+          echo $status = '<label class="label label-success">Diterima</label>';
+        }
+        else {
+          echo $status = '<label class="label label-danger">Ditolak</label>';
+        }
+        ?>
   <select name="status" id="status" class="texbox" class="span4" value="<?php echo $status; ?>">
   <option>--Pilih--</option>
   <option value="1">Diterima</option>
   <option value="2">Ditolak</option>
   <option value="0">Diproses</option>
-  <?php
-  if ($row->Aksi == 0) {
-    echo $status Diproses;
-  }
-  elseif ($row->Aksi == 1) {
-    $status = '<label class="label label-success">Diterima</label>';
-  }
-  else {
-    $status = '<label class="label label-danger">Ditolak</label>';
-  }
-  ?>
-  </select>
-
-</div>
+  </select></td>
     <!--a href="<?php echo site_url('admin/edit/'.$row->id) ?>"
                        class="btn btn-small"><i class="fas fa-edit"></i> Edit</a-->
                      </td>
