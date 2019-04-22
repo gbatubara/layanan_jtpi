@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 08, 2019 at 09:24 AM
+-- Generation Time: Apr 22, 2019 at 08:57 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.2
 
@@ -134,7 +134,35 @@ CREATE TABLE `tbl_kp` (
 --
 
 INSERT INTO `tbl_kp` (`id`, `Nim`, `Nama`, `kode_prodi`, `Tempat_KP`, `Alamat_KP`, `Aksi`) VALUES
-(1, 14116039, 'Gabriel Batubara', 3, 'Kostan', 'Jl. Lapas', 1);
+(1, 14116039, 'Gabriel Batubara', 3, 'Kostan', 'Jl. Lapas', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_perizinan`
+--
+
+CREATE TABLE `tbl_perizinan` (
+  `id` int(11) NOT NULL,
+  `nama` varchar(30) NOT NULL,
+  `nim` int(10) NOT NULL,
+  `kode_prodi` int(6) NOT NULL,
+  `nama_kegiatan` varchar(30) NOT NULL,
+  `agenda` varchar(30) NOT NULL,
+  `tempat` varchar(30) NOT NULL,
+  `tanggal` date NOT NULL,
+  `waktu` time(4) NOT NULL,
+  `namapj` varchar(30) NOT NULL,
+  `jabatanpj` varchar(30) NOT NULL,
+  `aksi` int(11) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_perizinan`
+--
+
+INSERT INTO `tbl_perizinan` (`id`, `nama`, `nim`, `kode_prodi`, `nama_kegiatan`, `agenda`, `tempat`, `tanggal`, `waktu`, `namapj`, `jabatanpj`, `aksi`) VALUES
+(2, 'gabriel', 14116039, 9, 'iseng ajah', 'gabut', 'kostan', '2019-04-17', '05:10:00.0000', 'gabgab', 'tukang tidur', 0);
 
 --
 -- Indexes for dumped tables
@@ -174,6 +202,14 @@ ALTER TABLE `tbl_kp`
   ADD KEY `Aksi` (`Aksi`);
 
 --
+-- Indexes for table `tbl_perizinan`
+--
+ALTER TABLE `tbl_perizinan`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `kd_prodi` (`kode_prodi`),
+  ADD KEY `status` (`aksi`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -181,7 +217,13 @@ ALTER TABLE `tbl_kp`
 -- AUTO_INCREMENT for table `tbl_kp`
 --
 ALTER TABLE `tbl_kp`
-  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `tbl_perizinan`
+--
+ALTER TABLE `tbl_perizinan`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables
@@ -199,6 +241,13 @@ ALTER TABLE `mahasiswa`
 ALTER TABLE `tbl_kp`
   ADD CONSTRAINT `tbl_kp_ibfk_2` FOREIGN KEY (`kode_prodi`) REFERENCES `prodi` (`kode_prodi`) ON DELETE CASCADE,
   ADD CONSTRAINT `tbl_kp_ibfk_3` FOREIGN KEY (`Aksi`) REFERENCES `status` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `tbl_perizinan`
+--
+ALTER TABLE `tbl_perizinan`
+  ADD CONSTRAINT `tbl_perizinan_ibfk_1` FOREIGN KEY (`kode_prodi`) REFERENCES `prodi` (`kode_prodi`) ON DELETE CASCADE,
+  ADD CONSTRAINT `tbl_perizinan_ibfk_2` FOREIGN KEY (`aksi`) REFERENCES `status` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
