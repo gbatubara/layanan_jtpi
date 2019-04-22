@@ -208,4 +208,7 @@
 			redirect('users/izinkegiatan');
 		}
 	}
+	public function download1(){
+		force_download('download/FORM_ZIN_KEGIATAN_MAHASISWA.docx', NULL);
+	}
 }

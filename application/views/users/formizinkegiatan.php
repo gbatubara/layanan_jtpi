@@ -62,6 +62,8 @@
     <label for="jabatanpj"><b>Jabatan Penanggung Jawab</b></label>
     <input type="text" placeholder="Jabatan Penanggung Jawab" class="form-control" name="jabatanpj" required>
 
+    <i><a href="<?php echo base_url() ?>users/download1/">Download file</a></i>
+
     <hr>
     <i><p style="color: #ea2727">Catatan:</p></i>
     <p>Menunjukkan surat pernyataan dari prodi/pembina/surat tugas/ proposal.
