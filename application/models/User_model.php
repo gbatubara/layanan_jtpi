@@ -82,4 +82,29 @@
 			// Insert formkp
 			return $this->db->insert('tbl_perizinan', $data);
 		}
+
+		//crud
+		function getAllData() {
+        $query = $this->db->query('SELECT * FROM tbl_kp INNER JOIN prodi ON tbl_kp.kode_prodi = prodi.kode_prodi');
+        return $query->result();
+    }
+		function getData_crud($id) {
+        $query = $this->db->query('SELECT * FROM tbl_kp INNER JOIN prodi ON tbl_kp.kode_prodi = prodi.kode_prodi WHERE `id` =' .$id);
+        return $query->row();
+    }
+		function updateData($id) {
+        $data = array (
+					'Nim'				=> $this->input->post('nim'),
+					'Nama'			=> $this->input->post('name'),
+					'Tempat_KP'	=> $this->input->post('tempatkp'),
+					'Alamat_KP'	=> $this->input->post('alamatkp'),
+					'Aksi'	=> $this->input->post('aksi')
+        );
+        $this->db->where('id', $id);
+        $this->db->update('tbl_kp', $data);
+    }
+		function deleteData($id) {
+        $this->db->where('id', $id);
+        $this->db->delete('tbl_kp');
+    }
 	}

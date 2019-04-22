@@ -71,6 +71,7 @@
            <?php if(!$this->session->userdata('login')) : ?>
              <li><a href="<?php echo base_url() ?>users/login"><i class="glyphicon glyphicon-log-in"></i> Login</a></li>
             <li><a href="<?php echo base_url() ?>users/register"><i class="glyphicon glyphicon-user"></i> Register</a></li>
+						<li><a href="<?php echo base_url() ?>users/crudView">crud</a></li>
           <?php else : ?>
 						<li><a href="<?php echo base_url() ?>pages/dashboard"><i class="glyphicon glyphicon-user"></i> Dashboard</a></li>
 						<li><a href="<?php echo base_url() ?>users/logout"><i class="glyphicon glyphicon-log-out"></i> Log out</a></li>

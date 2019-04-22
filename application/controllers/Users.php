@@ -211,4 +211,31 @@
 	public function download1(){
 		force_download('download/FORM_ZIN_KEGIATAN_MAHASISWA.docx', NULL);
 	}
+	//crud
+public function crudView() {
+	$data['result'] = $this->user_model->getAllData();
+	$this->load->view('templates/header');
+	$this->load->view('users/crudView', $data);
+	$this->load->view('templates/footer');
+
+}
+
+public function edit($id) {
+			$data['row'] = $this->user_model->getData_crud($id);
+			$this->load->view('templates/header');
+			$this->load->view('users/crudEdit', $data);
+			$this->load->view('templates/footer');
+
+	}
+	public function update($id) {
+		$this->user_model->updateData($id);
+		redirect("Users/crudView");
+
+}
+public function delete($id) {
+		$this->user_model->deleteData($id);
+		redirect("Users/crudView");
+
+}
+
 }
