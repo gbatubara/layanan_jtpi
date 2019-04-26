@@ -63,6 +63,7 @@
             <li><a href="<?php echo base_url() ?>users/register">Register</a></li>
 
           <?php endif; ?>
+          <li><a href="#"><i class="glyphicon glyphicon-user"></i> Profile</a></li>
           <li><a href="<?php echo base_url() ?>users/logout"><i class="glyphicon glyphicon-log-out"></i> Log out</a></li>
           </ul>
       </div>

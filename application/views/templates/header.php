@@ -62,9 +62,8 @@
             <div class="collapse navbar-collapse" id="myNavbar">
           <ul class="nav navbar-nav navbar-left menu">
             <li><a href="<?php echo base_url() ?>"><i class="glyphicon glyphicon-home"></i> Home</a></li>
-						<li><a href="<?php echo base_url(); ?>filter">Validasi</a></li>
-			<li><a href="#"><i class="glyphicon glyphicon-user"></i> Profil</a></li>
-			<li><a href="#">Program Studi</a></li>
+						<li><a href="<?php echo base_url(); ?>filter"> <i class="glyphicon glyphicon-check"></i> Validasi</a></li>
+			<li><a href="#"><i class="glyphicon glyphicon-briefcase"></i> Program Studi</a></li>
 			<li><a href="<?php echo base_url() ?>kalenderakademik"><i class="glyphicon glyphicon-calendar"></i> Kalender Akademik</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right menu">
