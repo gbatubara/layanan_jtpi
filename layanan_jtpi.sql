@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
--- https://www.phpmyadmin.net/
+-- version 4.5.1
+-- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 22, 2019 at 08:57 AM
--- Server version: 10.1.38-MariaDB
--- PHP Version: 7.3.2
+-- Generation Time: May 01, 2019 at 09:47 AM
+-- Server version: 10.1.19-MariaDB
+-- PHP Version: 7.0.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -43,12 +41,22 @@ INSERT INTO `admin` (`email`, `password`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Stand-in structure for view `jam`
+--
+CREATE TABLE `jam` (
+`WAKTU` varchar(10)
+,`kode_prodi` int(6)
+);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `mahasiswa`
 --
 
 CREATE TABLE `mahasiswa` (
   `nim` int(10) NOT NULL,
-  `email` varchar(35) DEFAULT NULL,
+  `email` varchar(40) DEFAULT NULL,
   `password` varchar(35) DEFAULT NULL,
   `nama_mhs` varchar(35) DEFAULT NULL,
   `kode_prodi` int(6) DEFAULT NULL
@@ -59,7 +67,8 @@ CREATE TABLE `mahasiswa` (
 --
 
 INSERT INTO `mahasiswa` (`nim`, `email`, `password`, `nama_mhs`, `kode_prodi`) VALUES
-(14116039, 'gabrielbatubara91@gmail.com', '202cb962ac59075b964b07152d234b70', 'gabriel', 3);
+(14116039, 'gabriel.14116039@student.itera.ac.id', '25f9e794323b453885f5181f1b624d0b', 'Gabriel Batubara', 3),
+(14116059, 'yohanes.14116059@student.itera.ac.id', '25d55ad283aa400af464c76d713c07ad', 'yohanes eloi pardamean manik', 3);
 
 -- --------------------------------------------------------
 
@@ -144,25 +153,36 @@ INSERT INTO `tbl_kp` (`id`, `Nim`, `Nama`, `kode_prodi`, `Tempat_KP`, `Alamat_KP
 
 CREATE TABLE `tbl_perizinan` (
   `id` int(11) NOT NULL,
-  `nama` varchar(30) NOT NULL,
-  `nim` int(10) NOT NULL,
+  `Nama` varchar(30) NOT NULL,
+  `Nim` int(10) NOT NULL,
   `kode_prodi` int(6) NOT NULL,
-  `nama_kegiatan` varchar(30) NOT NULL,
-  `agenda` varchar(30) NOT NULL,
-  `tempat` varchar(30) NOT NULL,
-  `tanggal` date NOT NULL,
-  `waktu` time(4) NOT NULL,
-  `namapj` varchar(30) NOT NULL,
-  `jabatanpj` varchar(30) NOT NULL,
-  `aksi` int(11) NOT NULL DEFAULT '0'
+  `Nama_kegiatan` varchar(30) NOT NULL,
+  `Agenda` varchar(30) NOT NULL,
+  `Tempat` varchar(30) NOT NULL,
+  `Tanggal` date NOT NULL,
+  `Waktu` time(4) NOT NULL,
+  `Namapj` varchar(30) NOT NULL,
+  `Jabatanpj` varchar(30) NOT NULL,
+  `Aksi` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tbl_perizinan`
 --
 
-INSERT INTO `tbl_perizinan` (`id`, `nama`, `nim`, `kode_prodi`, `nama_kegiatan`, `agenda`, `tempat`, `tanggal`, `waktu`, `namapj`, `jabatanpj`, `aksi`) VALUES
-(2, 'gabriel', 14116039, 9, 'iseng ajah', 'gabut', 'kostan', '2019-04-17', '05:10:00.0000', 'gabgab', 'tukang tidur', 0);
+INSERT INTO `tbl_perizinan` (`id`, `Nama`, `Nim`, `kode_prodi`, `Nama_kegiatan`, `Agenda`, `Tempat`, `Tanggal`, `Waktu`, `Namapj`, `Jabatanpj`, `Aksi`) VALUES
+(3, 'Gabriel Batubara', 14116039, 7, 'asd', 'asd', 'asd', '2019-05-16', '09:59:00.0000', 'asd', 'asd', 0),
+(4, 'Gabriel Batubara', 14116039, 8, 'asd', 'asds', 'asd', '2019-05-14', '02:57:00.0000', 'fdfd', 'dsfsdfsgd', 0),
+(5, 'yohanes eloi pardamean manik', 14116059, 6, 'asddsad', 'asdsasd', '123123', '2019-05-16', '12:33:00.0000', 'gfdgdf', 'dfgdfgdf', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `jam`
+--
+DROP TABLE IF EXISTS `jam`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `jam`  AS  select time_format(`tbl_perizinan`.`Waktu`,'%H:%i') AS `WAKTU`,`tbl_perizinan`.`kode_prodi` AS `kode_prodi` from `tbl_perizinan` ;
 
 --
 -- Indexes for dumped tables
@@ -207,7 +227,7 @@ ALTER TABLE `tbl_kp`
 ALTER TABLE `tbl_perizinan`
   ADD PRIMARY KEY (`id`),
   ADD KEY `kd_prodi` (`kode_prodi`),
-  ADD KEY `status` (`aksi`);
+  ADD KEY `status` (`Aksi`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -218,13 +238,11 @@ ALTER TABLE `tbl_perizinan`
 --
 ALTER TABLE `tbl_kp`
   MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
 --
 -- AUTO_INCREMENT for table `tbl_perizinan`
 --
 ALTER TABLE `tbl_perizinan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- Constraints for dumped tables
 --
@@ -248,7 +266,6 @@ ALTER TABLE `tbl_kp`
 ALTER TABLE `tbl_perizinan`
   ADD CONSTRAINT `tbl_perizinan_ibfk_1` FOREIGN KEY (`kode_prodi`) REFERENCES `prodi` (`kode_prodi`) ON DELETE CASCADE,
   ADD CONSTRAINT `tbl_perizinan_ibfk_2` FOREIGN KEY (`aksi`) REFERENCES `status` (`id`);
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
