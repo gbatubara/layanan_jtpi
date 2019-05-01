@@ -2,7 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Crud_model extends CI_Model {
-    public function __construct() {
+    /*public function __construct() {
         $this->load->database();
     }
 
@@ -42,5 +42,9 @@ class Crud_model extends CI_Model {
     function deleteData($id) {
         $this->db->where('id', $id);
         $this->db->delete('tbl_name');
+    }*/
+    public function tampil_data()
+    {
+		return $this->db->get('tbl_kp');
     }
 }

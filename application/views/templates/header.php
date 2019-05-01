@@ -1,5 +1,4 @@
 <html>
-
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,6 +9,9 @@
 	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 	<link rel="shortcut icon" href="<?php echo base_url()?>assets/images/logo%20itera%20oke.png"/>
 	<title>Jurusan Teknologi Produksi, Industri, dan Informasi</title>
+
+	<link rel="stylesheet" href="assets/css/font-awesome/font-awesome.min.css">
+	<link rel="stylesheet" href="assets/css/font-awesome/font-awesome.css">
 
 	<link rel='stylesheet' id='open-sans-css'  href='https://fonts.googleapis.com/css?family=Open+Sans%3A300italic%2C400italic%2C600italic%2C300%2C400%2C600&#038;subset=latin%2Clatin-ext&#038;ver=4.4.2' type='text/css' media='all' />
 
@@ -33,7 +35,7 @@
 		    <div class="container ">
 		      <div class="row ">
 		        <div class="col-md-1">
-		            <a href="http://jtpi.itera.ac.id">
+		            <a href="<?php echo base_url()?>">
 		              <img src="<?php echo base_url()?>assets/images/logo%20itera%20oke.png" width="70px" style="margin-bottom:10px; "/>
 
 		            </a>
@@ -59,17 +61,20 @@
         <div class="container">
             <div class="collapse navbar-collapse" id="myNavbar">
           <ul class="nav navbar-nav navbar-left menu">
-            <li><a href="<?php echo base_url() ?>">Home</a></li>
-            <li><a href="<?php echo base_url()?>filter">validasi</a></li>
-						<li><a href="<?php echo base_url() ?>crudView">crud</a></li>
+            <li><a href="<?php echo base_url() ?>"><i class="glyphicon glyphicon-home"></i> Home</a></li>
+						<li><a href="<?php echo base_url(); ?>filter"> <i class="glyphicon glyphicon-check"></i> Validasi</a></li>
+			<li><a href="#"><i class="glyphicon glyphicon-briefcase"></i> Program Studi</a></li>
+			<li><a href="<?php echo base_url() ?>kalenderakademik"><i class="glyphicon glyphicon-calendar"></i> Kalender Akademik</a></li>
           </ul>
-
           <ul class="nav navbar-nav navbar-right menu">
-           <?php if(!$this->session->userdata('logged_in')) : ?>
-             <li><a href="<?php echo base_url() ?>users/login">Login</a></li>
-            <li><a href="<?php echo base_url() ?>users/register">Register</a></li>
-
+           <?php if(!$this->session->userdata('login')) : ?>
+             <li><a href="<?php echo base_url() ?>users/login"><i class="glyphicon glyphicon-log-in"></i> Login</a></li>
+            <li><a href="<?php echo base_url() ?>users/register"><i class="glyphicon glyphicon-user"></i> Register</a></li>
+          <?php else : ?>
+						<li><a href="<?php echo base_url() ?>pages/dashboard"><i class="glyphicon glyphicon-user"></i> Dashboard</a></li>
+						<li><a href="<?php echo base_url() ?>users/logout"><i class="glyphicon glyphicon-log-out"></i> Log out</a></li>
           <?php endif; ?>
+
           </ul>
 
         </div>
@@ -77,22 +82,21 @@
     </nav>
   </div>
 
+	<!-- Flash messages -->
+	      <!--?php if($this->session->flashdata('user_registered')): ?-->
+	        <!--?php echo '<p class="alert alert-success">'.$this->session->flashdata('user_registered').'</p>'; ?-->
+	      <!--?php endif; ?-->
 
-      <!-- Flash messages -->
-      <?php if($this->session->flashdata('user_registered')): ?>
-        <?php echo '<p class="alert alert-success">'.$this->session->flashdata('user_registered').'</p>'; ?>
-      <?php endif; ?>
+	      <!--?php if($this->session->flashdata('login_failed')): ?-->
+	        <!--?php echo '<p class="alert alert-danger">'.$this->session->flashdata('login_failed').'</p>'; ?-->
+	      <!--?php endif; ?-->
 
-      <?php if($this->session->flashdata('login_failed')): ?>
-        <?php echo '<p class="alert alert-danger">'.$this->session->flashdata('login_failed').'</p>'; ?>
-      <?php endif; ?>
+	      <!--?php if($this->session->flashdata('user_loggedin')): ?-->
+	        <!--?php echo '<p class="alert alert-success">'.$this->session->flashdata('user_loggedin').'</p>'; ?-->
+	      <!--?php endif; ?-->
 
-      <?php if($this->session->flashdata('user_loggedin')): ?>
-        <?php echo '<p class="alert alert-success">'.$this->session->flashdata('user_loggedin').'</p>'; ?>
-      <?php endif; ?>
-
-       <?php if($this->session->flashdata('user_loggedout')): ?>
-        <?php echo '<p class="alert alert-success">'.$this->session->flashdata('user_loggedout').'</p>'; ?>
-      <?php endif; ?>
+	       <!--?php if($this->session->flashdata('user_loggedout')): ?-->
+	        <!--?php echo '<p class="alert alert-success">'.$this->session->flashdata('user_loggedout').'</p>'; ?-->
+	      <!--?php endif; ?-->
 </body>
 </html>
