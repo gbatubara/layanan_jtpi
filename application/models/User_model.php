@@ -2,17 +2,24 @@
 	class User_model extends CI_Model{
 		public function register($enc_password){
 			// User data array
-			$data = array(
-				'nama_mhs'	=> $this->input->post('name'),
-				'nim'				=> $this->input->post('nim'),
-				'email' 		=> $this->input->post('email'),
-				'kode_prodi'=> $this->input->post('pilihanprodi'),
-        'password'	=> $enc_password
+			$vemail = substr($this->input->post('email'), -20);
+			$vpassword = strlen($this->input->post('password'));
+			if(($vemail=='@student.itera.ac.id') && ($vpassword>7 && $vpassword<13)){
+				$data = array(
+					'nama_mhs'	=> $this->input->post('name'),
+					'nim'		=> $this->input->post('nim'),
+					'email' 	=> $this->input->post('email'),
+					'kode_prodi'=> $this->input->post('pilihanprodi'),
+	        		'password'	=> $enc_password
 
-			);
+				);
 
-			// Insert user
-			return $this->db->insert('mahasiswa', $data);
+				// Insert user
+				return $this->db->insert('mahasiswa', $data);
+				}
+			else{
+
+			}
 		}
 
 		// Log user in
@@ -21,6 +28,7 @@
 			$this->db->where('email', $email);
 			$this->db->where('password', $password);
 			$result = $this->db->get('mahasiswa');
+
 
 			if($result->num_rows() == 1){
 				return $result->row()->nim;
@@ -45,18 +53,21 @@
 			return $this->db->get();
 		}
 		public function show_data2(){
-			$this->db->select('*');
-			$this->db->from('tbl_perizinan');
-			$this->db->join('prodi', 'tbl_perizinan.kode_prodi = prodi.kode_prodi');
-			return $this->db->get();
+			return $this->db->query("SELECT Nim, Nama, kode_prodi,nama_prodi, Nama_kegiatan, Tempat, Tanggal, Aksi, TIME_FORMAT(Waktu, '%H:%i') AS Waktu FROM tbl_perizinan NATURAL JOIN prodi");
 		}
 		public function getdata(){
 			return $this->db->query("SELECT * FROM prodi ORDER BY nama_prodi");
 		}
+		public function gettime(){
+			return $this->db->query("SELECT TIME_FORMAT(Waktu, '%H:%i') as Waktu FROM tbl_perizinan");
+		}
+		public function getcount($email){
+			return $this->db->query("SELECT COUNT(Nim) FROM tbl_perizinan WHERE Nim=(SELECT Nim FROM mahasiswa WHERE email = $email)");
+		}
 		public function insertdata(){
 			$data = array(
-				'Nim'				=> $this->input->post('nim'),
-				'Nama'			=> $this->input->post('name'),
+				'Nim'		=> $this->input->post('nim'),
+				'Nama'		=> $this->input->post('name'),
 				'kode_prodi'=> $this->input->post('pilihanprodi'),
 				'Tempat_KP'	=> $this->input->post('tempatkp'),
 				'Alamat_KP'	=> $this->input->post('alamatkp')
@@ -84,27 +95,9 @@
 		}
 
 		//crud
-		function getAllData() {
+		/*function getAllData() {
         $query = $this->db->query('SELECT * FROM tbl_kp INNER JOIN prodi ON tbl_kp.kode_prodi = prodi.kode_prodi');
         return $query->result();
-    }
-		function getData_crud($id) {
-        $query = $this->db->query('SELECT * FROM tbl_kp INNER JOIN prodi ON tbl_kp.kode_prodi = prodi.kode_prodi WHERE `id` =' .$id);
-        return $query->row();
-    }
-		function updateData($id) {
-        $data = array (
-					'Nim'				=> $this->input->post('nim'),
-					'Nama'			=> $this->input->post('name'),
-					'Tempat_KP'	=> $this->input->post('tempatkp'),
-					'Alamat_KP'	=> $this->input->post('alamatkp'),
-					'Aksi'	=> $this->input->post('aksi')
-        );
-        $this->db->where('id', $id);
-        $this->db->update('tbl_kp', $data);
-    }
-		function deleteData($id) {
-        $this->db->where('id', $id);
-        $this->db->delete('tbl_kp');
-    }
+    }*/
+		
 	}

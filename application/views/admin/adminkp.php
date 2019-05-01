@@ -2,7 +2,7 @@
 <div class="box box-success">
     <div class="box-header">
         <i class="fa fa-info-circle" aria-hidden="true"></i>
-        <h3 class="box-title text-center">Tabel Mahasiswa yang Mengajukan Izin Kegiatan</h3>
+        <h3 class="box-title text-center">Tabel Mahasiswa yang Mengajukan KP</h3>
     </div>
     <div class="box-body">
         <!--Konten diisi di dalam sini-->
@@ -23,7 +23,7 @@
       ?>
       <?php
       if ($row->Aksi == 0) {
-        $status = '<label class="label label-success">Diproses</label>';
+        $status = '<label class="label label-warning">Diproses</label>';
       }
       elseif ($row->Aksi == 1) {
         $status = '<label class="label label-success">Diterima</label>';
@@ -39,16 +39,13 @@
     <td><?php echo $row->Alamat_KP;?></td>
     <td><?php echo $status; ?></td>
     <td>
-  <select name="status" id="status" class="texbox" class="span4" value="<?php echo $status; ?>">
-  <option>--Pilih--</option>
-  <option value="1">Diterima</option>
-  <option value="2">Ditolak</option>
-  <option value="0">Diproses</option>
-  </select>
-    <a href="<?php echo site_url('admin/edit/'.$row->id) ?>"class="btn btn-small"><i class="fa fa-save"></i> Save</a >
-                     </td>
+    <a href="<?php echo site_url('Admin/edit_kp');?>/<?php echo $row->id;?>"><i class="fa fa-edit"> Edit</a></i>  |
+    <a href="<?php echo site_url('users/delete_kp');?>/<?php echo $row->id;?>"><i class="fa fa-trash"> Delete</a></i> </td>
     </tr>
   <?php } ?>
     </div>
+</div>
+</table>
+</div>
 </div>
 </div>

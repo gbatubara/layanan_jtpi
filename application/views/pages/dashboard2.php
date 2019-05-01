@@ -15,7 +15,6 @@
         <!--Konten diisi di dalam sini-->
         <table class="table">
                 <tr>
-                <th scope="col">No</th>
                 <th scope="col">Nim</th>
                 <th scope="col">Nama</th>
                 <th scope="col">Program Studi</th>
@@ -26,30 +25,30 @@
                 </tr>
               <tr>
                 <?php
-                $no=1;
                 foreach ($isi->result() as $row) {
                   ?>
                   <?php
-                  if ($row->aksi == 0) {
+                  if ($row->Aksi == 0) {
                     $status = '<label class="label label-warning">Diproses</label>';
                   }
-                  elseif ($row->aksi == 1) {
+                  elseif ($row->Aksi == 1) {
                     $status = '<label class="label label-success">Diterima</label>';
                   }
                   else {
                     $status = '<label class="label label-danger">Ditolak</label>';
                   }
+                
                   ?>
-                <td><?php echo $no++;?></td>
-                <td><?php echo $row->nim;?></td>
-                <td><?php echo $row->nama;?></td>
+                <td><?php echo $row->Nim;?></td>
+                <td><?php echo $row->Nama;?></td>
                 <td><?php echo $row->nama_prodi;?></td>
-                <td><?php echo $row->nama_kegiatan;?></td>
-                <td><?php echo $row->tempat;?></td>
-                <td><?php echo $row->tanggal." ".$row->waktu;?></td>
+                <td><?php echo $row->Nama_kegiatan;?></td>
+                <td><?php echo $row->Tempat;?></td>
+                <td><?php echo $row->Tanggal."  ".$row->Waktu;?></td>
                 <td><?php echo $status; ?></td>
                 </tr>
               <?php } ?>
+            
         </table>
     </div>
 </div>

@@ -113,6 +113,46 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 			$this->load->view('admin/header');
 			$this->load->view('admin/sidebar1');
-      $this->load->view('admin/'.$page, $data);
+      		$this->load->view('admin/'.$page, $data);
     }
+    public function edit_kp($id) {
+    		$this->load->model('admin_model');
+			$data['row'] = $this->admin_model->getData_kp($id);
+			$this->load->view('admin/header');
+			$this->load->view('admin/sidebar');
+			$this->load->view('admin/edit_kp', $data);
+
+	}
+	public function update_kp($id) {
+		$this->load->model('admin_model');
+		$this->admin_model->updateData_kp($id);
+		redirect("Admin/t_kp");
+
+	}
+	public function delete_kp($id) {
+		$this->load->model('admin_model');
+		$this->admin_model->deleteData_kp($id);
+		redirect("Admin/t_kp");
+
+	}
+	public function edit_izin($id) {
+			$this->load->model('admin_model');
+			$data['row'] = $this->admin_model->getData_izin($id);
+			$this->load->view('admin/header');
+			$this->load->view('admin/sidebar2');
+			$this->load->view('admin/edit_izin', $data);
+
+	}
+	public function update_izin($id) {
+		$this->load->model('admin_model');
+		$this->admin_model->updateData_izin($id);
+		redirect("Admin/t_perizinan");
+
+	}
+	public function delete_izin($id) {
+		$this->load->model('admin_model');
+		$this->admin_model->deleteData_izin($id);
+		redirect("Admin/t_perizinan");
+
+	}
 }
