@@ -2,9 +2,6 @@
 	class User_model extends CI_Model{
 		public function register($enc_password){
 			// User data array
-			$vemail = substr($this->input->post('email'), -20);
-			$vpassword = strlen($this->input->post('password'));
-			if(($vemail=='@student.itera.ac.id') && ($vpassword>7 && $vpassword<13)){
 				$data = array(
 					'nama_mhs'	=> $this->input->post('name'),
 					'nim'		=> $this->input->post('nim'),
@@ -13,13 +10,8 @@
 	        		'password'	=> $enc_password
 
 				);
-
 				// Insert user
 				return $this->db->insert('mahasiswa', $data);
-				}
-			else{
-
-			}
 		}
 
 		// Log user in
@@ -38,8 +30,8 @@
 		}
 
 		// Check email exists
-		public function check_email_exists($email){
-			$query = $this->db->get_where('mahasiswa', array('email' => $email));
+		public function nim($nim){
+			$query = $this->db->get_where('mahasiswa', array('Nim' => $nim));
 			if(empty($query->row_array())){
 				return true;
 			} else {
@@ -99,5 +91,5 @@
         $query = $this->db->query('SELECT * FROM tbl_kp INNER JOIN prodi ON tbl_kp.kode_prodi = prodi.kode_prodi');
         return $query->result();
     }*/
-		
+
 	}

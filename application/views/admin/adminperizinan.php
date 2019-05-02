@@ -12,8 +12,11 @@
           <th>Nama</th>
           <th>Program Studi</th>
           <th>Nama Kegiatan</th>
+          <th>Agenda</th>
           <th>Tempat Kegiatan</th>
           <th>Waktu Kegiatan</th>
+          <th>Nama PJ</th>
+          <th>Jabatan PJ</th>
           <th>Status</th>
           <th>Aksi</th>
           </tr>
@@ -27,8 +30,11 @@
       <td><?php echo $row->Nama;?></td>
       <td><?php echo $row->nama_prodi;?></td>
       <td><?php echo $row->Nama_kegiatan;?></td>
+      <td><?php echo $row->Agenda;?></td>
       <td><?php echo $row->Tempat;?></td>
       <td><?php echo $row->Tanggal." ".$row->Waktu;?></td>
+      <td><?php echo $row->Namapj;?></td>
+      <td><?php echo $row->Jabatanpj;?></td>      
       <td>  <?php
         if ($row->Aksi == 0) {
           echo $status = '<label class="label label-warning">Diproses</label>';

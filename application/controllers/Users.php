@@ -8,8 +8,8 @@
 			$data['title'] = 'Daftar';
 			$data['nama_prodi'] = $this->user_model->getdata();
 
-			$this->form_validation->set_rules('name', 'Name', 'required');
-			$this->form_validation->set_rules('email', 'Email', 'required|callback_check_email_exists');
+			//$this->form_validation->set_rules('nama', 'Name', 'required');
+			$this->form_validation->set_rules('nim', 'NIM', 'required|callback_cek_nim');
 			$this->form_validation->set_rules('password', 'Password', 'required');
 			$this->form_validation->set_rules('password2', 'Konfirmasi Password', 'matches[password]');
 
@@ -18,6 +18,8 @@
 				$this->load->view('users/register', $data);
 				$this->load->view('templates/footer');
 			} else {
+				//$vemail = substr($this->input->post('email'), -20);
+				//if($vemail=='@student.itera.ac.id'){
 				// Encrypt password
 				$enc_password = md5($this->input->post('password'));
 
@@ -33,6 +35,10 @@
 
 				redirect('users/register');
 			}
+			//else {
+				//echo "<script>window.alert('Email tidak sesuai format')</script>";
+			  //echo "<meta http-equiv='refresh' content='0;url=http://localhost/layanan_jtpi/users/register'>";
+			//}
 		}
 
 		// Log in user
@@ -127,12 +133,15 @@
 		}
 
 		// Check if email exists
-		public function check_email_exists($email){
-			$this->form_validation->set_message('info', '<div class="alert alert-block alert-warning">
-					<button type="button" class="close" data-dismiss="alert"></strong>That email is taken. Please choose a different one </div>');
-			if($this->user_model->check_email_exists($email)){
+		public function cek_nim($nim){
+			if($this->user_model->nim($nim)){
 				return true;
 			} else {
+				$this->form_validation->set_message('cek_nim', '<div class="alert alert-block alert-danger">
+						<button type="button" class="close" data-dismiss="alert">
+						<i class="fa fa-remove"></i></button>
+						<i class="fa fa-ok red"></i>
+						</strong>Nim Sudah Digunakan </div>');
 				return false;
 			}
 		}

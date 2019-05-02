@@ -42,7 +42,7 @@
 			return $this->db->get();
 		}
 		public function show_data2(){
-			return $this->db->query("SELECT id, Nim, Nama, kode_prodi,nama_prodi, Nama_kegiatan, Tempat, Tanggal, Aksi, TIME_FORMAT(Waktu, '%H:%i') AS Waktu FROM tbl_perizinan NATURAL JOIN prodi");
+			return $this->db->query("SELECT id, Nim, Nama, kode_prodi, nama_prodi, Agenda, Namapj, Jabatanpj, Nama_kegiatan, Tempat, Tanggal, Aksi, TIME_FORMAT(Waktu, '%H:%i') AS Waktu FROM tbl_perizinan NATURAL JOIN prodi");
 		}
 		function getData_kp($id) {
         $query = $this->db->query('SELECT * FROM tbl_kp INNER JOIN prodi ON tbl_kp.kode_prodi = prodi.kode_prodi WHERE `id` =' .$id);
@@ -64,8 +64,9 @@
         $this->db->delete('tbl_kp');
     }
     	public function getData_izin($id) {
-        $query = $this->db->query('SELECT * FROM tbl_perizinan INNER JOIN prodi ON tbl_perizinan.kode_prodi = prodi.kode_prodi WHERE `id` =' .$id);
-        return $query->row();
+        //$query = $this->db->query('SELECT * FROM tbl_perizinan INNER JOIN prodi ON tbl_perizinan.kode_prodi = prodi.kode_prodi WHERE `id` =' .$id);
+				$query = $this->db->query("SELECT id, Nim, Nama, kode_prodi, nama_prodi, Nama_kegiatan, Agenda, Namapj, Jabatanpj, Tempat, Tanggal, Aksi, TIME_FORMAT(Waktu, '%H:%i') AS Waktu FROM tbl_perizinan NATURAL JOIN prodi WHERE `id` =" .$id);
+				return $query->row();
     }
 		public function updateData_izin($id) {
         $data = array (
