@@ -60,9 +60,7 @@ class Filter extends CI_Controller
 		</tr>
 		<?php endforeach ?> <?php
 		}else{
-			?>
-			<tr><td align="center">Tidak ada data</td></tr>
-			<?php
+			//no action
 		}
 
 

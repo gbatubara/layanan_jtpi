@@ -58,7 +58,7 @@
             <li><a href="<?php echo base_url() ?>admin/t_kp"><i class="glyphicon glyphicon-home"></i> Home</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right menu">
-          <li><a href="<?php echo base_url() ?>admin/logout"><i class="glyphicon glyphicon-log-out"></i> Log out</a></li>
+          <li><a href="<?php echo base_url() ?>users/logout"><i class="glyphicon glyphicon-log-out"></i> Log out</a></li>
           </ul>
       </div>
   </nav>

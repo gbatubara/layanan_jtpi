@@ -44,27 +44,36 @@
 		// Log in user
 		public function login(){
 			if($this->session->has_userdata('login')) {
-				redirect('home');
+				redirect('page/dashboard');
+			}
+			if($this->session->has_userdata('loginadmin')) {
+				redirect('admin/t_kp');
 			}
 			$data['title'] = 'Login';
+			$data['captcha'] = $this->captcha();
+			$data['result'] = $this->resultcaptcha();
 			//$data['captcha'] = $hasil;
 
 			$this->form_validation->set_rules('email', 'Email', 'required');
 			$this->form_validation->set_rules('password', 'Password', 'required');
+			$this->form_validation->set_rules('kode', '', 'required');
 
 			if($this->form_validation->run() === FALSE){
 				$this->load->view('templates/header');
 				$this->load->view('users/login', $data);
 				$this->load->view('templates/footer');
 			} else {
-
+				$resultcapt = $this->input->post('inicaptcha');
+				$inputcapt = $this->input->post('kode');
+				if($inputcapt == $resultcapt){
 				// Get username
 				$email = $this->input->post('email');
 				// Get and encrypt the password
 				$password = md5($this->input->post('password'));
-
 				// Login user
 				$user_id = $this->user_model->login($email, $password);
+				$this->load->model('Admin_model');
+				$user_id2 = $this->Admin_model->login($email, $password);
 
 				if($user_id){
 					// Create session
@@ -76,31 +85,56 @@
 					$this->session->set_userdata('login', $user_data);
 					// Set message
 					$this->session->set_flashdata('info', '<div class="alert alert-block alert-success">
-							<button type="button" class="close" data-dismiss="alert">
-							<i class="fa fa-remove"></i></button>
 							<i class="fa fa-ok green"></i>
 							<strong class="green">
-							</strong>You are now logged in </div>');
+							</strong>Anda Berhasil Login.</div>');
 
 					redirect('pages/dashboard');
+				}elseif($user_id2){
+
+					$user_data = array(
+						'user_id' 	=> $user_id2,
+						'email' 	=> $email,
+						'logged_in' => true
+					);
+					$this->session->set_userdata('loginadmin', $user_data);
+					// Set message
+					$this->session->set_flashdata('info', '<div class="alert alert-block alert-success">
+							<i class="fa fa-ok green"></i>
+							<strong class="green">
+							</strong>Anda Berhasil Logout.</div>');
+
+					redirect('admin/t_kp');
 				} else {
 					// Set message
-					$this->session->set_flashdata('info', '<div class="alert alert-block alert-warning">
+					$this->session->set_flashdata('info', '<div class="alert alert-block alert-danger">
 							<button type="button" class="close" data-dismiss="alert">
 							<i class="fa fa-remove"></i></button>
 							<i class="fa fa-ok red"></i>
 							<strong class="red">
-							</strong>Login is invalid </div');
+							</strong>Login Gagal. Emai atau Password Anda Salah.</div');
 
 					redirect('users/login');
 				}
 			}
-		}
+				else {
+					$this->session->set_flashdata('info', '<div class="alert alert-block alert-danger">
+							<button type="button" class="close" data-dismiss="alert">
+							<i class="fa fa-remove"></i></button>
+							<i class="fa fa-ok red"></i>
+							<strong class="red">
+							</strong>Captcha Salah</div');
+
+							redirect('users/login');
+						}
+					}
+				}
 
 		// Log user out
 		public function logout(){
 			// Unset user data
 			$this->session->unset_userdata('login');
+			$this->session->unset_userdata('loginadmin');
 			/*$this->session->unset_userdata('email');
 			$this->session->unset_userdata('logged_in');*/
 
@@ -118,19 +152,22 @@
 		{
 			// code...
 			$listoperator = array('+', '-', 'x');
-			$this->bil1 = rand(0, 20);
-			$this->bil2 = rand(0, 20);
+			$this->bil1 = rand(0, 9);
+			$this->bil2 = rand(0, 9);
 			$this->operator = $listoperator[rand(0, 2)];
-			if ($this->operator == '+'){
-				 return $hasil = $this->bil1 + $this->bil2;
-			 }
-			else if ($this->operator == '-') {
-				return $hasil = $this->bil1 - $this->bil2;
 			}
-			else if ($this->operator == 'x') {
-				return $hasil = $this->bil1 * $this->bil2;
-			}
-		}
+			/*function showcaptcha(){
+				$this->captcha();
+				echo "Berapa hasil dari ".$this->bil1." ".$this->operator." ".$this->bil2." ? ";
+			}*/
+			function resultcaptcha()
+    {
+			$this->captcha();
+			if ($this->operator == '+') $hasil = $this->bil1 + $this->bil2;
+			else if ($this->operator == '-') $hasil = $this->bil1 - $this->bil2;
+			else if ($this->operator == 'x') $hasil = $this->bil1 * $this->bil2;
+			return $hasilkode['kode'] = $hasil;
+    }
 
 		// Check if email exists
 		public function cek_nim($nim){

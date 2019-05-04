@@ -2,7 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 	class Admin extends CI_Controller{
 		public function t_kp($page = 'adminkp'){
-			if(!$this->session->has_userdata('login_admin')) {
+			if(!$this->session->has_userdata('loginadmin')) {
 				redirect('admin/login');
 			}
 			if(!file_exists(APPPATH.'views/admin/'.$page.'.php')){
@@ -18,7 +18,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$this->load->view('admin/'.$page, $data);
 		}
 		public function t_perizinan($page = 'adminperizinan'){
-			if(!$this->session->has_userdata('login_admin')) {
+			if(!$this->session->has_userdata('loginadmin')) {
 				redirect('admin/login');
 			}
 			if(!file_exists(APPPATH.'views/admin/'.$page.'.php')){
@@ -33,7 +33,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$this->load->view('admin/sidebar2');
 			$this->load->view('admin/'.$page, $data);
 		}
-		public function login(){
+		/*public function login(){
 			if($this->session->has_userdata('login_admin')) {
 				redirect('admin/t_kp');
 			}
@@ -95,7 +95,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$this->session->unset_userdata('logged_in');*/
 
 			// Set message
-			$this->session->set_flashdata('info', '<div class="alert alert-block alert-success">
+			/*$this->session->set_flashdata('info', '<div class="alert alert-block alert-success">
 					<button type="button" class="close" data-dismiss="alert">
 					<i class="fa fa-remove"></i></button>
 					<i class="fa fa-ok green"></i>
@@ -103,8 +103,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					</strong>You are now logged out </div');
 
 			redirect('admin/login');
-		}
+		}*/
     public function add($page = 'add_admin'){
+			if(!$this->session->has_userdata('loginadmin')) {
+				redirect('admin/login');
+			}
       if(!file_exists(APPPATH.'views/admin/'.$page.'.php')){
         show_404();
       }
