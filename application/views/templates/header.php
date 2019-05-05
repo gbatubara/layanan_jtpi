@@ -26,41 +26,7 @@
 	<link rel="stylesheet" href="http://jtpi.itera.ac.id/wp-content/themes/itera-1/css/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="<?php echo base_url()?>assets/style.css" type="text/css" media="screen" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-
-
-<style type="text/css">
-	li.dropdown {
-		display: inline-block;
-	}
- 
-	.dropdown:hover .isi-dropdown {
-		display: block;
-	}
- 
-	.isi-dropdown a:hover {
-		color: #fff;
-	}
- 
-	.isi-dropdown {
-		position: absolute;
-		display: none;
-		box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-		  min-width: 270px;
-		z-index: 3;
-		background-color: #fff;
-	}
- 
-	.isi-dropdown a {
-		color: #3c3c3c;
-	}
- 
-	.isi-dropdown a:hover {
-		color: #232323;
-		background: #f3f3f3;
-	}
-</style>
-
-
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>assets/css/bootstrap/css/headerdropdown.css">
   </head>
 
 	<body>
