@@ -10,9 +10,8 @@
   <h2 class="widgettitle">Kontak</h2>     
   <div class="textwidget"><h2 class="widgettitle">Ruang JTPI</h2>
   <p>Ruang D209 </p>
-<p>Gedung D, Institut Teknologi Sumatera.</p>
-<p>Jalan Terusan Ryacudu, Desa Way Hui, Kecamatan Jati Agung, Lampung Selatan. 35365</p>
-<p>Email : jtpi@itera.ac.id</p>
+  <p>Administrasi JTPI : Gedung D – Ruang D209, ITERA, Jalan Terusan Ryacudu, Way Huwi, Jati Agung, Kabupaten Lampung Selatan, Lampung 35365<p>
+<p>Email : jti@itera.ac.id</p>
 </div>
 </div>
 </div>
