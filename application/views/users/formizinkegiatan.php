@@ -8,10 +8,10 @@
 <body>
   <div class="container container-utama">
   <div class="row content">
-  <div class="col-md-5">
-    <h1>Form Perizinan Kegiatan JTPI</h1>
-    <p>Silahkan isi form dengan lengkap dan benar</p>
-    <i><p>"Kemudian silahkan download form yang terdapat pada link dibawah"</p></i>
+  <div class="col-md-12">
+    <center><h1>Form Perizinan Kegiatan JTPI</h1></center>
+    <p style="margin-left: 200px; margin-top: 50px;">Silahkan isi form dengan lengkap dan benar</p>
+    <i><p style="margin-left: 200px">"Kemudian silahkan download form yang terdapat pada link dibawah"</p></i>
   </div>
   <div class="col-md-12">    <hr>
     <?php
@@ -69,7 +69,7 @@
     <p>Menunjukkan surat pernyataan dari prodi/pembina/surat tugas/ proposal.
 Siap menerima sanksi disiplin apabila pelaksanaan kegiatan melewati jadwal yang telah ditentukan.</p>
 <i><p style="color: #ea2727">/* Periksalah kembali bahwa data yang anda isi sudah benar dan valid</p></i>
-    <button type="submit" onclick="submit" id="btnsubmit" class="registerbtn">Submit</button>
+    <button style="margin-bottom: 50px" type="submit" onclick="submit" id="btnsubmit" class="registerbtn">Submit</button>
 
   </div>
 </div>

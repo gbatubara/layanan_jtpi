@@ -8,10 +8,10 @@
 <body>
 <div class="container container-utama">
 <div class="row content">
-  <div class="col-md-5">
-    <h1>Form Pengajuan KP JTPI</h1>
-    <p>Silahkan isi form dengan lengkap</p>
-   <i><p>"Kemudian silahkan download form yang terdapat pada link dibawah"</p></i>
+  <div class="col-md-12">
+    <center><h1>Form Pengajuan KP JTPI</h1></center>
+    <p style="margin-left: 200px; margin-top: 50px">Silahkan isi form dengan lengkap</p>
+   <i><p style="margin-left: 200px">"Kemudian silahkan download form yang terdapat pada link dibawah"</p></i>
   </div>
   <div class="col-md-12">    <hr>
     <?php
@@ -23,10 +23,10 @@
             ?>
   </div>
 <div class="col-md-8 col-md-offset-2">
-    <label><b>Name</b></label>
+    <label><b>Nama</b></label>
     <input type="text" placeholder="Nama" class="form-control" name="name" required>
 
-    <label><b>Nim</b></label>
+    <label><b>NIM</b></label>
     <input type="text" placeholder="NIM" class="form-control" name="nim" required>
 
 
@@ -38,6 +38,9 @@
     echo "<option value='".$row_prodi->kode_prodi."'>".$row_prodi->nama_prodi."</option>";}
     ?>
     </select>
+
+    <label><b>No.HP</b></label>
+    <input type="text" placeholder="Nomor Hp" class="form-control" name="nomorhp" required>
 
     <label><b>Tempat KP</b></label>
     <input type="text" placeholder="Nama Instansi / Perusahaan Tempat KP" class="form-control" name="tempatkp" required>
@@ -52,7 +55,7 @@
 
     <hr>
     <i><p style="color: #ea2727">/* Periksalah kembali bahwa data yang anda isi sudah benar dan valid</p></i>
-    <button type="submit" onclick="submit" id="btnsubmit" class="registerbtn">Submit</button>
+    <button style="margin-bottom: 50px" type="submit" onclick="submit" id="btnsubmit" class="registerbtn">Submit</button>
   </div>
 </div>
 </div>

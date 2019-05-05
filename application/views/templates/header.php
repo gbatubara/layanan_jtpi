@@ -26,6 +26,41 @@
 	<link rel="stylesheet" href="http://jtpi.itera.ac.id/wp-content/themes/itera-1/css/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="<?php echo base_url()?>assets/style.css" type="text/css" media="screen" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<style type="text/css">
+	li.dropdown {
+		display: inline-block;
+	}
+ 
+	.dropdown:hover .isi-dropdown {
+		display: block;
+	}
+ 
+	.isi-dropdown a:hover {
+		color: #fff;
+	}
+ 
+	.isi-dropdown {
+		position: absolute;
+		display: none;
+		box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+		  min-width: 270px;
+		z-index: 3;
+		background-color: #fff;
+	}
+ 
+	.isi-dropdown a {
+		color: #3c3c3c;
+	}
+ 
+	.isi-dropdown a:hover {
+		color: #232323;
+		background: #f3f3f3;
+	}
+</style>
+
+
   </head>
 
 	<body>
@@ -63,7 +98,35 @@
           <ul class="nav navbar-nav navbar-left menu">
             <li><a href="<?php echo base_url() ?>"><i class="glyphicon glyphicon-home"></i> Home</a></li>
 						<!--li><a href="<?php echo base_url(); ?>filter"> <i class="glyphicon glyphicon-check"></i> Validasi</a></li-->
-			<li><a href="#"><i class="glyphicon glyphicon-briefcase"></i> Program Studi</a></li>
+
+			 <li class="dropdown"><a href="#"><i class=""></i> Profil JTPI<i class="Caret"></i></a>
+			 <ul class="isi-dropdown">
+			<li><a href="<?php echo base_url() ?>sejarahjtpi">Sejarah JTPI</a></li>
+			<li><a href="#">Visi & Misi</a></li>
+			<li><a href="<?php echo base_url() ?>strukturorganisasi">Struktur Organisasi JTPI</a></li>
+			<li><a href="<?php echo base_url() ?>tujuanjtpi">Tujuan JTPI ITERA</a></li>
+			</ul>
+			 </li>
+
+			<li class="dropdown"><a href="#"><i class="glyphicon glyphicon-briefcase"></i> Program Studi<i class="Caret"></i></a>
+			<ul class="isi-dropdown">
+			<li><a href="http://el.itera.ac.id">Prodi Teknik Elektro</a></li>
+			<li><a href="http://tg.itera.ac.id/">Prodi Teknik Geofisika</a></li>
+			<li><a href="http://if.itera.ac.id/">Prodi Teknik Informatika</a></li>
+			<li><a href="http://me.itera.ac.id/">Prodi Teknik Mesin</a></li>
+			<li><a href="http://ti.itera.ac.id/">Prodi Teknik Industri</a></li>
+			<li><a href="http://tk.itera.ac.id/">Prodi Teknik Kimia</a></li>
+			<li><a href="http://gl.itera.ac.id/">Prodi Teknik Geologi</a></li>
+			<li><a href="http://tf.itera.ac.id/">Prodi Teknik Fisika</a></li>
+			<li><a href="http://tb.itera.ac.id/">Prodi Teknik Biosistem</a></li>
+			<li><a href="http://tse.itera.ac.id/">Prodi Teknik Sistem Energi</a></li>
+			<li><a href="http://tin.itera.ac.id/">Prodi Teknologi Industri Pertanian</a></li>
+			<li><a href="http://tp.itera.ac.id/">Prodi Teknologi Pangan</a></li>
+			<li><a href="http://ta.itera.ac.id/">Prodi Teknik Pertambangan</a></li>
+			<li><a hrefhttp://mt.itera.ac.id/">Prodi Teknik Material</a></li>
+			<li><a href="#">Prodi Teknik Telekomunikasi</a></li>
+		</ul>
+	</li>
 			<li><a href="<?php echo base_url() ?>kalenderakademik"><i class="glyphicon glyphicon-calendar"></i> Kalender Akademik</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right menu">

@@ -5,14 +5,23 @@
 
 <div class="textwidget">
 
-<center>
+<div class="col-md-6">
  <div id="text-3" class="widget widget_text">
   <h2 class="widgettitle">Kontak</h2>     
   <div class="textwidget"><h2 class="widgettitle">Ruang JTPI</h2>
   <p>Ruang D209 </p>
-<p>Gedung D, Institut Teknologi Sumatera</p>
-<p>Jalan Terusan Ryacudu, Desa Way Hui, Kecamatan Jati Agung, Lampung Selatan 35365</p>
-<p>Email : jti@itera.ac.id</p></center>
+<p>Gedung D, Institut Teknologi Sumatera.</p>
+<p>Jalan Terusan Ryacudu, Desa Way Hui, Kecamatan Jati Agung, Lampung Selatan. 35365</p>
+<p>Email : jtpi@itera.ac.id</p>
+</div>
+</div>
+</div>
+
+<div class="col-md-6">
+ <div id="text-3" class="widget widget_text">
+  <h2 class="widgettitle">    
+  <div class="textwidget"><h2 class="widgettitle">
+</div>
 </div>
 </div>
 		</div>          </div>
