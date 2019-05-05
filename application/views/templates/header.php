@@ -89,8 +89,8 @@
 			<li><a href="http://tin.itera.ac.id/">Prodi Teknologi Industri Pertanian</a></li>
 			<li><a href="http://tp.itera.ac.id/">Prodi Teknologi Pangan</a></li>
 			<li><a href="http://ta.itera.ac.id/">Prodi Teknik Pertambangan</a></li>
-			<li><a hrefhttp://mt.itera.ac.id/">Prodi Teknik Material</a></li>
-			<li><a href="#">Prodi Teknik Telekomunikasi</a></li>
+			<li><a href="http://mt.itera.ac.id/">Prodi Teknik Material</a></li>
+			<li><a href="http://tt.itera.ac.id/">Prodi Teknik Telekomunikasi</a></li>
 		</ul>
 	</li>
 			<li><a href="<?php echo base_url() ?>kalenderakademik"><i class="glyphicon glyphicon-calendar"></i> Kalender Akademik</a></li>
