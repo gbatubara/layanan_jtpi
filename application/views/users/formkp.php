@@ -10,7 +10,7 @@
 <div class="row content">
   <div class="col-md-12">
     <center><h1>Form Pengajuan KP JTPI</h1></center>
-    <p style="margin-left: 200px; margin-top: 50px">Silahkan isi form dengan lengkap</p>
+    <p style="margin-left: 200px; margin-top: 50px">Silahkan isi form dengan lengkap dan benar</p>
    <i><p style="margin-left: 200px">"Kemudian silahkan download form yang terdapat pada link dibawah"</p></i>
   </div>
   <div class="col-md-12">    <hr>
