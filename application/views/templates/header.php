@@ -65,7 +65,7 @@
             <li><a href="<?php echo base_url() ?>"><i class="glyphicon glyphicon-home"></i> Home</a></li>
 						<!--li><a href="<?php echo base_url(); ?>filter"> <i class="glyphicon glyphicon-check"></i> Validasi</a></li-->
 
-			 <li class="dropdown"><a href="#"><i class=""></i> Profil JTPI<i class="Caret"></i></a>
+			 <li class="dropdown"><a href="#"><i class="glyphicon glyphicon-info-sign"></i> Profil JTPI<i class="Caret"></i></a>
 			 <ul class="isi-dropdown">
 			<li><a href="<?php echo base_url() ?>sejarahjtpi">Sejarah JTPI</a></li>
 			<li><a href="#">Visi & Misi</a></li>
