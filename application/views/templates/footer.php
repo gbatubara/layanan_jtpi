@@ -7,11 +7,9 @@
 
 <div class="col-md-6">
  <div id="text-3" class="widget widget_text">
-  <h2 class="widgettitle">Kontak</h2>     
-  <div class="textwidget"><h2 class="widgettitle">Ruang JTPI</h2>
-  <p>Ruang D209 </p>
+  <h3 class="widgettitle">Jurusan Teknologi Produksi dan Industri ITERA</h3>     
   <p>Administrasi JTPI : Gedung D – Ruang D209, ITERA, Jalan Terusan Ryacudu, Way Huwi, Jati Agung, Kabupaten Lampung Selatan, Lampung 35365<p>
-<p>Email : jti@itera.ac.id</p>
+  <p>Email : jti@itera.ac.id</p>
 </div>
 </div>
 </div>
