@@ -40,7 +40,7 @@
     <td><?php echo $status; ?></td>
     <td>
     <a href="<?php echo site_url('Admin/edit_kp');?>/<?php echo $row->id;?>"><i class="fa fa-edit"> Edit</a></i>  |
-    <a href="<?php echo site_url('users/delete_kp');?>/<?php echo $row->id;?>"><i class="fa fa-trash"> Delete</a></i> </td>
+    <a href="<?php echo site_url('Admin/delete_kp');?>/<?php echo $row->id;?>"><i class="fa fa-trash"> Delete</a></i> </td>
     </tr>
   <?php } ?>
     </div>
