@@ -1,3 +1,4 @@
+<div class="container content">
 <div class="col-md-9">
 <div class="box box-success">
     <div class="box-header">
@@ -46,6 +47,7 @@
     </div>
 </div>
 </table>
+</div>
 </div>
 </div>
 </div>

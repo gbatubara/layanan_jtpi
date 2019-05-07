@@ -54,9 +54,8 @@
 			return $this->db->query("SELECT TIME_FORMAT(Waktu, '%H:%i') as Waktu FROM tbl_perizinan");
 		}
 		public function getcount($email){
-			return $this->db->query("SELECT COUNT(Nim) FROM tbl_perizinan WHERE Nim=(SELECT Nim FROM mahasiswa WHERE email = $email)");
-		}
-		public function insertdata(){
+			return $this->db->query("SELECT COUNT(Nim) as count FROM tbl_perizinan WHERE Nim=(SELECT Nim FROM mahasiswa WHERE email = yohanes.14116059");
+		}		public function insertdata(){
 			$data = array(
 				'Nim'		=> $this->input->post('nim'),
 				'Nama'		=> $this->input->post('name'),
@@ -70,16 +69,16 @@
 		}
 		public function insertdataizin(){
 			$data = array(
-				'nama'					=> $this->input->post('name'),
-				'nim'						=> $this->input->post('nim'),
+				'Nama'					=> $this->input->post('name'),
+				'Nim'						=> $this->input->post('nim'),
 				'kode_prodi'		=> $this->input->post('pilihanprodi'),
-				'nama_kegiatan'	=> $this->input->post('namakegiatan'),
-				'agenda'				=> $this->input->post('agenda'),
-				'tempat'				=> $this->input->post('tempat'),
-				'tanggal'				=> $this->input->post('tanggal'),
-				'waktu'					=> $this->input->post('waktu'),
-				'namapj'				=> $this->input->post('namapj'),
-				'jabatanpj'			=> $this->input->post('jabatanpj')
+				'Nama_kegiatan'	=> $this->input->post('namakegiatan'),
+				'Agenda'				=> $this->input->post('agenda'),
+				'Tempat'				=> $this->input->post('tempat'),
+				'Tanggal'				=> $this->input->post('tanggal'),
+				'Waktu'					=> $this->input->post('waktu'),
+				'Namapj'				=> $this->input->post('namapj'),
+				'Jabatanpj'			=> $this->input->post('jabatanpj')
 
 			);
 			// Insert formkp

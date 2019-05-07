@@ -23,6 +23,7 @@
             ?>
   </div>
     <div class="col-md-8 col-md-offset-2">
+        <?php echo $getcount;?>
     <label for="name"><b>Nama</b></label>
     <input type="text" placeholder="Nama" class="form-control" name="name" required>
 

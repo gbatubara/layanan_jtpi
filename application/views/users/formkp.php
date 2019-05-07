@@ -24,10 +24,10 @@
   </div>
 <div class="col-md-8 col-md-offset-2">
     <label><b>Nama</b></label>
-    <input type="text" placeholder="Nama" class="form-control" name="name" required>
+    <input type="text" class="form-control" name="name" value="" required>
 
     <label><b>NIM</b></label>
-    <input type="text" placeholder="NIM" class="form-control" name="nim" required>
+    <input type="text" placeholder="NIM" class="form-control" name="nim" value="" required>
 
 
     <label><b>Program Studi</b></label>

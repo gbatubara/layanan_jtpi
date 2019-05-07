@@ -123,7 +123,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$data['row'] = $this->admin_model->getData_kp($id);
 			$this->load->view('admin/header');
 			$this->load->view('admin/sidebar');
-			$this->load->vfprintf(handle, format, args)iew('admin/edit_kp', $data);
+			$this->load->view('admin/edit_kp', $data);
 
 	}
 	public function update_kp($id) {
