@@ -1,3 +1,8 @@
+<head>
+  <link rel="stylesheet" href="<?php echo base_url()?>assets/text.css">
+</head>
+
+
 <div class="container content">
 <div class="col-md-9">
 <div class="box box-success">

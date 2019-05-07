@@ -1,10 +1,14 @@
+<head>
+  <link rel="stylesheet" href="<?php echo base_url()?>assets/text.css">
+</head>
+
 <div class="container content">
 <div class="col-md-9">
 <div class="box box-success">
     <div class="box-header">
         <i class="fa fa-info-circle" aria-hidden="true"></i>
         <h3 class="box-title text-center">Tabel Mahasiswa yang Mengajukan Izin Kegiatan</h3>
-    
+    </div>
     <div class="box-body">
         <!--Konten diisi di dalam sini-->
         <table class="table">
@@ -53,6 +57,7 @@
     </tr>
   <?php } ?>
     </div>
+  </div>
   </table>
 </div>
 </div>
