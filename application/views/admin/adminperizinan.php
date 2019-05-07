@@ -41,10 +41,10 @@
           echo $status = '<label class="label label-warning">Diproses</label>';
         }
         elseif ($row->Aksi == 1) {
-          echo $status = '<label class="label label-success">Diterima</label>';
+          echo $status = '<label class="label label-success">Selesai</label>';
         }
         else {
-          echo $status = '<label class="label label-danger">Ditolak</label>';
+          echo $status = '<label class="label label-danger">Revisi</label>';
         }
         ?></td>
         <td>
