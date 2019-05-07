@@ -10,7 +10,7 @@ include "PHPExcel.php";
 $csv = new PHPExcel();
 $csv->getProperties()->setCreator('Admin JTPI ITERA')
              ->setLastModifiedBy('Admin JTPI ITERA')
-             ->setTitle("Data Kerja Praktik Mahasiswa ITERA")
+             ->setTitle("Kerja Praktik")
              ->setSubject("Mahasiswa ITERA")
              ->setDescription("Laporan Semua Kerja Praktik Mahasiswa")
              ->setKeywords("Data Mahasiswa");
@@ -22,7 +22,7 @@ $csv->setActiveSheetIndex(0)->setCellValue('E1', "Tempat KP");
 $csv->setActiveSheetIndex(0)->setCellValue('F1', "Alamat KP");
 $csv->setActiveSheetIndex(0)->setCellValue('G1', "Keterangan");
 
-$sql = $pdo->prepare("SELECT id,Nim,Nama,nama_prodi,Tempat_KP,Alamat_KP,nama_status FROM tbl_perizinan JOIN prodi ON tbl_kp.kode_prodi=prodi.kode_prodi JOIN status ON tbl_kp.id=status.id ");
+$sql = $pdo->prepare("SELECT tbl_kp.id,Nim,Nama,nama_prodi,Tempat_KP,Alamat_KP,nama_status FROM tbl_perizinan JOIN prodi ON tbl_kp.kode_prodi=prodi.kode_prodi JOIN status ON tbl_kp.id=status.id ");
 $sql->execute();
 $numrow = 2;
 while($data = $sql->fetch()){
@@ -37,7 +37,7 @@ while($data = $sql->fetch()){
   $numrow++;
 }
 $csv->getActiveSheet()->getPageSetup()->setOrientation(PHPExcel_Worksheet_PageSetup::ORIENTATION_LANDSCAPE);
-$csv->getActiveSheet(0)->setTitle("Data Kerja Praktik Mahasiswa JTPI ITERA");
+$csv->getActiveSheet(0)->setTitle("Kerja Praktik");
 $csv->setActiveSheetIndex(0);
 header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
 header('Content-Disposition: attachment; filename="Data Kerja Praktik Mahasiswa JTPI ITERA.csv"'); // Set nama file excel nya
