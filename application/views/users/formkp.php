@@ -39,8 +39,8 @@
     ?>
     </select><br>
 
-    <label><b>No.HP</b></label>
-    <input type="text" placeholder="Nomor Hp" class="form-control" name="nomorhp" required>
+    <!--<label><b>No.HP</b></label>
+    <input type="text" placeholder="Nomor Hp" class="form-control" name="nomorhp" required>-->
 
     <label><b>Tempat KP</b></label>
     <input type="text" placeholder="Nama Instansi / Perusahaan Tempat KP" class="form-control" name="tempatkp" required>
