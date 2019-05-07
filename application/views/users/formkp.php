@@ -49,8 +49,8 @@
     <input type="text" placeholder="Alamat Tempat KP" class="form-control" name="alamatkp" required>
 
 
-        <i><link><a href="<?php echo base_url() ?>users/add_user/"> Ajukan Penambahan Angota</a></i></link>
-        &emsp;
+        <!--<i><link><a href="<?php echo base_url() ?>users/add_user/"> Ajukan Penambahan Angota</a></i></link>
+        &emsp;?-->
         <i><a href="<?php echo base_url() ?>users/download/">Download file</a></i>
 
     <hr>
