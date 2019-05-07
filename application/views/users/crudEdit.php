@@ -23,8 +23,8 @@
                 <label for="exampleInputEmail1">Status</label>
                 <select name="aksi" id="status_bayar" class="texbox" class="span4" value="<?php echo $Aksi; ?>">
                 <option>--Pilih--</option>
-                <option value="1">Diterima</option>
-                <option value="2">Ditolak</option>
+                <option value="1">Selesai</option>
+                <option value="2">Revisi</option>
                 <option value="0">Diproses</option>
                 </select>
             </div>

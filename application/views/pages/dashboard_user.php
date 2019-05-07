@@ -33,10 +33,10 @@
                     $status = '<label class="label label-warning">Diproses</label>';
                   }
                   elseif ($row->Aksi == 1) {
-                    $status = '<label class="label label-success">Diterima</label>';
+                    $status = '<label class="label label-success">Selesai</label>';
                   }
                   else {
-                    $status = '<label class="label label-danger">Ditolak</label>';
+                    $status = '<label class="label label-danger">Revisi</label>';
                   }
                   ?>
                 <td><?php echo $no++;?></td>
