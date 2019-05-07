@@ -7,6 +7,7 @@
     </div>
     <div class="box-body">
         <!--Konten diisi di dalam sini-->
+        <a href="convert_kp.php">Download File</a><br/><br/>
         <table class="table">
       <tr>
         <th>Nim</th>
