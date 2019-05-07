@@ -37,7 +37,7 @@
     foreach ($nama_prodi->result() as $row_prodi) {
     echo "<option value='".$row_prodi->kode_prodi."'>".$row_prodi->nama_prodi."</option>";}
     ?>
-    </select>
+    </select><br>
 
     <label><b>No.HP</b></label>
     <input type="text" placeholder="Nomor Hp" class="form-control" name="nomorhp" required>
