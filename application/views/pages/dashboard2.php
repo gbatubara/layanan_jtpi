@@ -37,7 +37,7 @@
                   else {
                     $status = '<label class="label label-danger">Revisi</label>';
                   }
-                
+
                   ?>
                 <td><?php echo $row->Nim;?></td>
                 <td><?php echo $row->Nama;?></td>
@@ -48,8 +48,11 @@
                 <td><?php echo $status; ?></td>
                 </tr>
               <?php } ?>
-            
+
         </table>
     </div>
 </div>
+<?php if($getcount==true) : ?>
+<i><a href="<?php echo base_url() ?>users/download1/">Download file</a></i>
+<?php endif; ?>
 </div>

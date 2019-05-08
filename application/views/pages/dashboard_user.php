@@ -51,4 +51,7 @@
         </table>
     </div>
 </div>
+<?php if($getcount==true) : ?>
+  <i><a href="<?php echo base_url() ?>users/download/">Download file</a></i>
+  <?php endif; ?>
 </div>

@@ -24,20 +24,14 @@
   </div>
 <div class="col-md-8 col-md-offset-2">
     <label><b>Nama</b></label>
-    <input type="text" class="form-control" name="name" value="" required>
+    <input type="text" class="form-control" name="name" readonly value="<?php echo $row->nama_mhs;?>" required>
 
     <label><b>NIM</b></label>
-    <input type="text" placeholder="NIM" class="form-control" name="nim" value="" required>
+    <input type="text" placeholder="NIM" class="form-control" name="nim" readonly value="<?php echo $row->nim;?>" required>
 
 
-    <label><b>Program Studi</b></label>
-    <select name="pilihanprodi" id="pilihanprodi" class="form-control" required>
-    <option value='' disabled selected>--Pilih--</option>
-    <?php
-    foreach ($nama_prodi->result() as $row_prodi) {
-    echo "<option value='".$row_prodi->kode_prodi."'>".$row_prodi->nama_prodi."</option>";}
-    ?>
-    </select><br>
+    <label for="prodi"><b>Program Studi</b></label>
+    <input type="text" class="form-control" name="viewprodi"  readonly value="<?php echo $row->nama_prodi;?>" required>
 
     <!--<label><b>No.HP</b></label>
     <input type="text" placeholder="Nomor Hp" class="form-control" name="nomorhp" required>-->
@@ -51,7 +45,6 @@
 
         <!--<i><link><a href="<?php echo base_url() ?>users/add_user/"> Ajukan Penambahan Angota</a></i></link>
         &emsp;?-->
-        <i><a href="<?php echo base_url() ?>users/download/">Download file</a></i>
 
     <hr>
     <i><p style="color: #ea2727">/* Periksalah kembali bahwa data yang anda isi sudah benar dan valid</p></i>

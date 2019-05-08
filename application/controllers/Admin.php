@@ -116,7 +116,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 			$this->load->view('admin/header');
 			$this->load->view('admin/sidebar1');
-      		$this->load->view('admin/'.$page, $data);
+      $this->load->view('admin/'.$page, $data);
     }
     public function edit_kp($id) {
     		$this->load->model('admin_model');

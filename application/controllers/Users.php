@@ -79,8 +79,8 @@
 					// Create session
 					$user_data = array(
 						'user_id' 	=> $user_id,
-						'email' 	=> $email,
-						'logged_in' => true
+						'logged_in' => true,
+						'email' 	=> $email
 					);
 					$this->session->set_userdata('login', $user_data);
 					// Set message
@@ -187,6 +187,7 @@
 			$data['title'] = 'formkp';
 			$data['nama_prodi'] = $this->user_model->getdata();
 			$data['getdata'] = $this->user_model->show_data();
+			$data['row'] = $this->user_model->getdatasession();
 
 
 			$this->form_validation->set_rules('name', 'Name', 'required');
@@ -230,15 +231,19 @@
 				return false;
 			}
 		}
+
 	public function izinkegiatan(){
 		$data['title'] = 'formizinkegiatan';
-		$data['nama_prodi'] = $this->user_model->getdata();
-		$data['getcount'] = $this->count();
+		//$data['nama'] = $this->user_model->getdatasession();
+		//$data['nim'] = $this->user_model->getdatasession();
+		//$data['nama_prodi'] = $this->user_model->getdatasession();
+		//$data['email'] = $this->db->query("SELECT * FROM mahasiswa where email= '$coba'");
+		$data['row'] = $this->user_model->getdatasession1();
 
 
-		$this->form_validation->set_rules('name', 'Name', 'required');
-		$this->form_validation->set_rules('nim', 'Nim', 'required');
-		$this->form_validation->set_rules('pilihanprodi', 'Program Studi', 'required');
+		//$this->form_validation->set_rules('name', 'Name', 'required');
+		//$this->form_validation->set_rules('nim', 'Nim', 'required');
+		//$this->form_validation->set_rules('prodi', 'Program Studi', 'required');
 		$this->form_validation->set_rules('namakegiatan', 'Nama Kegiatan', 'required');
 		$this->form_validation->set_rules('agenda', 'Agenda Kegiatan', 'required');
 		$this->form_validation->set_rules('tempat', 'Tempat Pelaksanaan', 'required');
