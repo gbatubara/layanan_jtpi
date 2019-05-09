@@ -33,8 +33,8 @@
     <label for="prodi"><b>Program Studi</b></label>
     <input type="text" class="form-control" name="viewprodi"  readonly value="<?php echo $row->nama_prodi;?>" required>
 
-    <!--<label><b>No.HP</b></label>
-    <input type="text" placeholder="Nomor Hp" class="form-control" name="nomorhp" required>-->
+    <label><b>No.HP</b></label>
+    <input type="text" placeholder="Nomor Hp" class="form-control" name="nomorhp" required>
 
     <label><b>Tempat KP</b></label>
     <input type="text" placeholder="Nama Instansi / Perusahaan Tempat KP" class="form-control" name="tempatkp" required>
