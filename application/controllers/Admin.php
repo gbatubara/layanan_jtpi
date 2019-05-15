@@ -157,5 +157,5 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		$this->admin_model->deleteData_izin($id);
 		redirect("Admin/t_perizinan");
 
-	}
+			}
 }

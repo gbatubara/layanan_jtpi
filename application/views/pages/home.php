@@ -37,6 +37,7 @@ img {vertical-align: middle;}
   max-width: 1000px;
   position: relative;
   margin: auto;
+  animation: slide 6s infinite;
 }
 
 /* Next & previous buttons */
@@ -49,10 +50,8 @@ img {vertical-align: middle;}
   margin-top: -22px;
   color: white;
   font-weight: bold;
-  font-size: 18px;
-  transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
-  user-select: none;
+  font-size: 20px;
+  transition: 0.6s;
 }
 
 /* Position the "next button" to the right */
@@ -60,6 +59,11 @@ img {vertical-align: middle;}
   right: 0;
   border-radius: 3px 0 0 3px;
 }
+.prev {
+  left: 0;
+  border-radius: 3px 0 0 3px;
+}
+
 
 /* On hover, add a black background color with a little bit see-through */
 .prev:hover, .next:hover {
@@ -74,6 +78,7 @@ img {vertical-align: middle;}
   position: absolute;
   bottom: 8px;
   width: 100%;
+  text-decoration-color: 
   text-align: center;
 }
 
@@ -87,7 +92,6 @@ img {vertical-align: middle;}
   background-color: #bbb;
   border-radius: 50%;
   display: inline-block;
-  transition: background-color 0.6s ease;
 }
 
 .active, .dot:hover {
@@ -96,10 +100,10 @@ img {vertical-align: middle;}
 
 /* Fading animation */
 .fade {
-  -webkit-animation-name: fade;
-  -webkit-animation-duration: 1.5s;
   animation-name: fade;
-  animation-duration: 1.5s;
+  animation: slide 6s infinite;
+  animation-name: fade;
+  animation-duration: none;
 }
 
 @-webkit-keyframes fade {
@@ -124,17 +128,22 @@ img {vertical-align: middle;}
 
 <div class="mySlides fade">
   <img src="assets/image/slide1.jpg" alt="Gambar 1"style="width:100%">
-  <div class="text">Caption Text</div>
+  <div class="text">JURUSAN TEKNOLOGI PRODUKSI, INDUSTRI DAN INFORMASI</div>
 </div>
 
 <div class="mySlides fade">
   <img src="assets/image/slide2.jpg" alt="Gambar 2"style="width:100%">
-  <div class="text">Caption Two</div>
+  <div class="text">Gerbang Institut Teknologi Sumatera</div>
 </div>
 
 <div class="mySlides fade">
   <img src="assets/image/slide3.jpg" alt="Gambar 3"style="width:100%">
-  <div class="text">Caption Three</div>
+  <div class="text">Gedung Kuliah Umum</div>
+</div>
+
+<div class="mySlides fade">
+  <img src="assets/image/slide4.jpg" alt="Gambar 4"style="width:100%">
+  <div class="text">Asrama Itera</div>
 </div>
 
 <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
@@ -146,6 +155,7 @@ img {vertical-align: middle;}
   <span class="dot" onclick="currentSlide(1)"></span> 
   <span class="dot" onclick="currentSlide(2)"></span> 
   <span class="dot" onclick="currentSlide(3)"></span> 
+  <span class="dot" onclick="currentSlide(4)"></span> 
 </div>
 
 <script>
