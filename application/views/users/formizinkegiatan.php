@@ -24,19 +24,13 @@
   </div>
     <div class="col-md-8 col-md-offset-2">
     <label for="name"><b>Nama</b></label>
-    <input type="text" placeholder="Nama" class="form-control" name="name" required>
+    <input type="text" class="form-control" name="name" readonly value="<?php echo $row->nama_mhs;?>" required>
 
     <label for="nim"><b>NIM</b></label>
-    <input type="text" placeholder="NIM" class="form-control" name="nim" required>
+    <input type="text" class="form-control" name="nim"  readonly value="<?php echo $row->nim;?>" required>
 
     <label for="prodi"><b>Program Studi</b></label>
-    <select name="pilihanprodi" id="pilihanprodi" class="form-control" required>
-    <option value='' disabled selected>--Pilih--</option>
-    <?php
-    foreach ($nama_prodi->result() as $row_prodi) {
-    echo "<option value='".$row_prodi->kode_prodi."'>".$row_prodi->nama_prodi."</option>";}
-    ?>
-    </select>
+    <input type="text" class="form-control" name="viewprodi"  readonly value="<?php echo $row->nama_prodi;?>" required>
 
     <label for="namakegiatan"><b>Nama Kegiatan</b></label>
     <input type="text" placeholder="Nama Kegiatan" class="form-control" name="namakegiatan" required>
@@ -62,7 +56,6 @@
     <label for="jabatanpj"><b>Jabatan Penanggung Jawab</b></label>
     <input type="text" placeholder="Jabatan Penanggung Jawab" class="form-control" name="jabatanpj" required>
 
-    <i><a href="<?php echo base_url() ?>users/download1/">Download file</a></i>
 
     <hr>
     <i><p style="color: #ea2727">Catatan:</p></i>

@@ -50,38 +50,67 @@
 		public function getdata(){
 			return $this->db->query("SELECT * FROM prodi ORDER BY nama_prodi");
 		}
+		public function getdatasession1(){
+			$getdata= $this->session->userdata('login');
+			$data = $getdata ['email'];
+			$query = $this->db->query("SELECT * FROM mahasiswa NATURAL JOIN prodi WHERE email='$data'");
+			return $query->row();
+		}
+		public function getdatasession(){
+			$getdata= $this->session->userdata('login');
+			$data = $getdata ['email'];
+			$query = $this->db->query("SELECT * FROM mahasiswa NATURAL JOIN prodi WHERE email='$data'");
+			return $query->row();
+		}
 		public function gettime(){
 			return $this->db->query("SELECT TIME_FORMAT(Waktu, '%H:%i') as Waktu FROM tbl_perizinan");
 		}
-		public function getcount($email){
-			return $this->db->query("SELECT COUNT(Nim) FROM tbl_perizinan WHERE Nim=(SELECT Nim FROM mahasiswa WHERE email = $email)");
+		public function getcount(){
+			$getdata= $this->session->userdata('login');
+			$data = $getdata ['email'];
+			return $this->db->query("SELECT COUNT(Nim) as count FROM tbl_perizinan NATURAL JOIN mahasiswa WHERE email = '$data'");
+		}
+		public function getcount1(){
+			$getdata= $this->session->userdata('login');
+			$data = $getdata ['email'];
+			return $this->db->query("SELECT COUNT(Nim) as count FROM tbl_perizinan NATURAL JOIN mahasiswa WHERE email = '$data'");
 		}
 		public function insertdata(){
+			$getdata= $this->session->userdata('login');
+			$data = $getdata ['email'];
+			$prodi=$this->db->query("SELECT kode_prodi FROM mahasiswa WHERE email='$data'");
+			foreach ($prodi->result() as $kd_prodi) {
 			$data = array(
 				'Nim'		=> $this->input->post('nim'),
 				'Nama'		=> $this->input->post('name'),
-				'kode_prodi'=> $this->input->post('pilihanprodi'),
+				'kode_prodi'=> $kd_prodi->kode_prodi,
 				'Tempat_KP'	=> $this->input->post('tempatkp'),
 				'Alamat_KP'	=> $this->input->post('alamatkp')
 
 			);
+		}
 			// Insert formkp
 			return $this->db->insert('tbl_kp', $data);
 		}
 		public function insertdataizin(){
+			$getdata= $this->session->userdata('login');
+			$data = $getdata ['email'];
+			$prodi=$this->db->query("SELECT kode_prodi FROM mahasiswa WHERE email='$data'");
+			foreach ($prodi->result() as $kd_prodi) {
 			$data = array(
-				'nama'					=> $this->input->post('name'),
-				'nim'						=> $this->input->post('nim'),
-				'kode_prodi'		=> $this->input->post('pilihanprodi'),
-				'nama_kegiatan'	=> $this->input->post('namakegiatan'),
-				'agenda'				=> $this->input->post('agenda'),
-				'tempat'				=> $this->input->post('tempat'),
-				'tanggal'				=> $this->input->post('tanggal'),
-				'waktu'					=> $this->input->post('waktu'),
-				'namapj'				=> $this->input->post('namapj'),
-				'jabatanpj'			=> $this->input->post('jabatanpj')
+				'Nama'					=> $this->input->post('name'),
+				'Nim'						=> $this->input->post('nim'),
+				'kode_prodi'		=> $kd_prodi->kode_prodi, //$this->input->post('prodi'),
+				'Nama_kegiatan'	=> $this->input->post('namakegiatan'),
+				'Agenda'				=> $this->input->post('agenda'),
+				'Tempat'				=> $this->input->post('tempat'),
+				'Tanggal'				=> $this->input->post('tanggal'),
+				'Waktu'					=> $this->input->post('waktu'),
+				'Namapj'				=> $this->input->post('namapj'),
+				'Jabatanpj'			=> $this->input->post('jabatanpj')
 
 			);
+		}
 			// Insert formkp
 			return $this->db->insert('tbl_perizinan', $data);
 		}

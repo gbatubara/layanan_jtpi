@@ -79,8 +79,8 @@
 					// Create session
 					$user_data = array(
 						'user_id' 	=> $user_id,
-						'email' 	=> $email,
-						'logged_in' => true
+						'logged_in' => true,
+						'email' 	=> $email
 					);
 					$this->session->set_userdata('login', $user_data);
 					// Set message
@@ -186,6 +186,8 @@
 		public function formkp(){
 			$data['title'] = 'formkp';
 			$data['nama_prodi'] = $this->user_model->getdata();
+			$data['getdata'] = $this->user_model->show_data();
+			$data['row'] = $this->user_model->getdatasession();
 
 
 			$this->form_validation->set_rules('name', 'Name', 'required');
@@ -220,20 +222,28 @@
 		public function count(){
 			$this->load->model('User_model');
 			$getcount = $this->User_model->getcount();
-			if($getcount<3){
+			foreach ($getcount->result() as $row) {
+				# code...
+			}
+			if($row->count<2){
 				return true;
 			}else{
 				return false;
 			}
 		}
+
 	public function izinkegiatan(){
 		$data['title'] = 'formizinkegiatan';
-		$data['nama_prodi'] = $this->user_model->getdata();
+		//$data['nama'] = $this->user_model->getdatasession();
+		//$data['nim'] = $this->user_model->getdatasession();
+		//$data['nama_prodi'] = $this->user_model->getdatasession();
+		//$data['email'] = $this->db->query("SELECT * FROM mahasiswa where email= '$coba'");
+		$data['row'] = $this->user_model->getdatasession1();
 
 
-		$this->form_validation->set_rules('name', 'Name', 'required');
-		$this->form_validation->set_rules('nim', 'Nim', 'required');
-		$this->form_validation->set_rules('pilihanprodi', 'Program Studi', 'required');
+		//$this->form_validation->set_rules('name', 'Name', 'required');
+		//$this->form_validation->set_rules('nim', 'Nim', 'required');
+		//$this->form_validation->set_rules('prodi', 'Program Studi', 'required');
 		$this->form_validation->set_rules('namakegiatan', 'Nama Kegiatan', 'required');
 		$this->form_validation->set_rules('agenda', 'Agenda Kegiatan', 'required');
 		$this->form_validation->set_rules('tempat', 'Tempat Pelaksanaan', 'required');
@@ -247,7 +257,7 @@
 			$this->load->view('users/formizinkegiatan', $data);
 			$this->load->view('templates/footer');
 		} else {
-			if(count() == true){
+			if($this->count() == true){
 			$this->load->model('User_model');
 			$this->user_model->insertdataizin();
 
@@ -259,14 +269,14 @@
 					<strong class="green">
 					</strong>Kamu Sudah Terdaftar. Silahkan Klik Link di Bawah Untuk Mendownload Form.</div>');
 
-			redirect('users/izinkegiatan');
+			redirect('pages/dashboard2');
 			}else{
 				$this->session->set_flashdata('info', '<div class="alert alert-block alert-danger">
 					<button type="button" class="close" data-dismiss="alert">
 					<i class="fa fa-remove"></i></button>
 					<i class="fa fa-ok green"></i>
 					<strong class="green">
-					</strong>basing.</div>');
+					</strong>Maaf, Anda Sudah Mendaftar Sebanyak 2 Kali.</div>');
 				redirect('users/izinkegiatan');
 			}
 		}

@@ -1,3 +1,8 @@
+<head>
+  <link rel="stylesheet" href="<?php echo base_url()?>assets/text.css">
+</head>
+
+<div class="container content">
 <div class="col-md-9">
 <div class="box box-success">
     <div class="box-header">
@@ -6,6 +11,7 @@
     </div>
     <div class="box-body">
         <!--Konten diisi di dalam sini-->
+        <a href="<?php echo base_url() ?>convert_izin">Download File</a><br/><br/>
         <table class="table">
           <tr>
           <th>Nim</th>
@@ -40,10 +46,10 @@
           echo $status = '<label class="label label-warning">Diproses</label>';
         }
         elseif ($row->Aksi == 1) {
-          echo $status = '<label class="label label-success">Diterima</label>';
+          echo $status = '<label class="label label-success">Selesai</label>';
         }
         else {
-          echo $status = '<label class="label label-danger">Ditolak</label>';
+          echo $status = '<label class="label label-danger">Revisi</label>';
         }
         ?></td>
         <td>
@@ -52,5 +58,9 @@
     </tr>
   <?php } ?>
     </div>
+  </div>
+  </table>
+</div>
+</div>
 </div>
 </div>

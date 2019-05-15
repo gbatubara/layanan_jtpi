@@ -8,9 +8,9 @@
   </div>
 
   <div class="list-group">
-    <a class="list-group-item list-group-item-header">Menu</a>
+    <!--a class="list-group-item list-group-item-header">Menu</a>
     <a href="<?php echo base_url()?>admin/add" class="list-group-item active">
-      <i class="fa fa-file-text-o tab10" aria-hidden="true"></i> Tambah Admin</a>
+      <i class="fa fa-file-text-o tab10" aria-hidden="true"></i> Tambah Admin</a-->
 
   </div>
 
