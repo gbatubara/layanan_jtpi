@@ -1,5 +1,5 @@
 <head>
-  <link rel="shortcut icon" href="<?php echo base_url()?>assets/images/logo%20itera%20oke.png"/>
+   <link rel="shortcut icon" href="<?php echo base_url()?>assets/images/logo%20itera%20oke.png"/>
   <title>Jurusan Teknologi Produksi, Industri, dan Informasi</title>
     <script src="<?php echo base_url()?>assets/js/jquery_004.js"></script>
     <script src="<?php echo base_url()?>assets/js/bootstrap.js"></script>
@@ -14,7 +14,6 @@
     <link rel="stylesheet" href="<?php echo base_url()?>assets/css/validationEngine.css" type="text/css" media="screen">
     <link rel="stylesheet" href="<?php echo base_url()?>assets/css/datepicker3.css" type="text/css" media="screen">
     <link rel="stylesheet" href="<?php echo base_url()?>assets/css/ladda-themeless.css">
-    <link rel="shortcut icon" href="<?php echo base_url()?>assets/img/logo%20itera%20oke.png">
     <link rel="stylesheet" href="<?php echo base_url()?>assets/css/chosen.css">
 
 

@@ -68,7 +68,7 @@
 			 <li class="dropdown"><a href="#"><i class="glyphicon glyphicon-info-sign"></i> Profil JTPI<i class="Caret"></i></a>
 			 <ul class="isi-dropdown">
 			<li><a href="<?php echo base_url() ?>sejarahjtpi">Sejarah JTPI</a></li>
-			<li><a href="#">Visi & Misi</a></li>
+			<!--<li><a href="#">Visi & Misi</a></li>-->
 			<li><a href="<?php echo base_url() ?>strukturorganisasi">Struktur Organisasi JTPI</a></li>
 			<li><a href="<?php echo base_url() ?>tujuanjtpi">Tujuan JTPI ITERA</a></li>
 			</ul>
