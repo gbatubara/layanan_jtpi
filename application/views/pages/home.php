@@ -9,6 +9,7 @@
 <h2><center>JURUSAN TEKNOLOGI PRODUKSI, INDUSTRI DAN INFORMASI</center></h2>
   <?php if (!$this->session->userdata('login')) : ?>
     <p><center>Silahkan login untuk detail lebih lanjut</center></p>
+  <?php endif; ?>
 <body>
   <div class=malasngoding-slider>
     <div class=isi-slider>
@@ -22,4 +23,3 @@
         </div>
       </div>
   </div>
-  <?php endif; ?>
