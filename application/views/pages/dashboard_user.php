@@ -15,7 +15,6 @@
         <!--Konten diisi di dalam sini-->
         <table class="table">
                 <tr>
-                <th scope="col">No</th>
                 <th scope="col">Nim</th>
                 <th scope="col">Nama</th>
                 <th scope="col">Program Studi</th>
@@ -25,7 +24,6 @@
                 </tr>
               <tr>
                 <?php
-                $no=1;
                 foreach ($isi->result() as $row) {
                   ?>
                   <?php
@@ -39,7 +37,6 @@
                     $status = '<label class="label label-danger">Revisi</label>';
                   }
                   ?>
-                <td><?php echo $no++;?></td>
                 <td><?php echo $row->Nim;?></td>
                 <td><?php echo $row->Nama;?></td>
                 <td><?php echo $row->nama_prodi;?></td>

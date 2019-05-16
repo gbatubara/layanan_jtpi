@@ -18,6 +18,7 @@
 				$this->load->view('users/register', $data);
 				$this->load->view('templates/footer');
 			} else {
+				 
 				//$vemail = substr($this->input->post('email'), -20);
 				//if($vemail=='@student.itera.ac.id'){
 				// Encrypt password
@@ -190,9 +191,7 @@
 			$data['row'] = $this->user_model->getdatasession();
 
 
-			$this->form_validation->set_rules('name', 'Name', 'required');
-			$this->form_validation->set_rules('nim', 'Nim', 'required');
-			$this->form_validation->set_rules('pilihanprodi', 'Program Studi', 'required');
+
 			$this->form_validation->set_rules('tempatkp', 'Tempat KP', 'required');
 			$this->form_validation->set_rules('alamatkp', 'Alamat Tempat KP', 'required');
 
@@ -212,7 +211,7 @@
 						<strong class="green">
 						</strong>Kamu Sudah Terdaftar. Silahkan Klik Link di Bawah Untuk Mendownload Form.</div>');
 
-				redirect('users/formkp');
+				redirect('pages/dashboard');
 			}
 		}
 		public function download(){
@@ -223,6 +222,19 @@
 			$this->load->model('User_model');
 			$getcount = $this->User_model->getcount();
 			foreach ($getcount->result() as $row) {
+				# code...
+			}
+			if($row->count<2){
+				return true;
+			}else{
+				return false;
+			}
+		}
+		public function count1(){
+			$this->load->model('User_model');
+			//$getcount = $this->User_model->getcount();
+			$getcount1 = $this->User_model->getcount1();
+			foreach ($getcount1->result() as $row) {
 				# code...
 			}
 			if($row->count<2){

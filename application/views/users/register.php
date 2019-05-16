@@ -25,7 +25,7 @@
 			</div>
 			<div class="form-group">
 				<label>NIM</label>
-				<input type="text" class="form-control" name="nim" id="nim" onkeypress="return isNumberKey(event)" placeholder="NIM" minlength="8" maxlength="10" required>
+				<input type="text" class="form-control" name="nim" id="nim" onkeypress="return isNumberKey(event)" placeholder="NIM" maxlength="10" required>
 			</div>
 			<div class="form-group">
 				<label>Email</label>

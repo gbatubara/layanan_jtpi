@@ -68,7 +68,7 @@
 		public function getcount(){
 			$getdata= $this->session->userdata('login');
 			$data = $getdata ['email'];
-			return $this->db->query("SELECT COUNT(Nim) as count FROM tbl_perizinan NATURAL JOIN mahasiswa WHERE email = '$data'");
+			return $this->db->query("SELECT COUNT(Nim) as count FROM tbl_kp NATURAL JOIN mahasiswa WHERE email = '$data'");
 		}
 		public function getcount1(){
 			$getdata= $this->session->userdata('login');
