@@ -99,8 +99,25 @@
                     return false;
                 }
                 return true;
+            	
             });
         });
 			</script>
+
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#btnsubmit").click(function () {
+                var password = $("#password").val();
+                if (password.length<8 || password.length>12) {
+                    alert("Password Minimal 8 - 12 Karakter");
+                    $("#password").focus();
+                    return false;
+                }
+                return true;
+            	
+            });
+        });
+			</script>	
 </html>
 <?php echo form_close(); ?>

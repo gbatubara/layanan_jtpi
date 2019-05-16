@@ -18,7 +18,7 @@
 				$this->load->view('users/register', $data);
 				$this->load->view('templates/footer');
 			} else {
-				 
+
 				//$vemail = substr($this->input->post('email'), -20);
 				//if($vemail=='@student.itera.ac.id'){
 				// Encrypt password
