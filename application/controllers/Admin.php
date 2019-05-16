@@ -158,6 +158,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		redirect("Admin/t_perizinan");
 
 			}
+
 			public function export(){
 				// Load plugin PHPExcel nya
 				include APPPATH.'third_party/PHPExcel.php';
@@ -262,6 +263,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				$write = PHPExcel_IOFactory::createWriter($excel, 'Excel2007');
 				$write->save('php://output');
 			  }
+
 			  public function exports(){
 				// Load plugin PHPExcel nya
 				include APPPATH.'third_party/PHPExcel.php';

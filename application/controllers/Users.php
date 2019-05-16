@@ -200,6 +200,7 @@
 				$this->load->view('users/formkp', $data);
 				$this->load->view('templates/footer');
 			} else {
+				if($this->count() == true){
 				$this->load->model('User_model');
 				$this->user_model->insertdata();
 
@@ -212,6 +213,15 @@
 						</strong>Kamu Sudah Terdaftar. Silahkan Klik Link di Bawah Untuk Mendownload Form.</div>');
 
 				redirect('pages/dashboard');
+			}else{
+				$this->session->set_flashdata('info', '<div class="alert alert-block alert-danger">
+					<button type="button" class="close" data-dismiss="alert">
+					<i class="fa fa-remove"></i></button>
+					<i class="fa fa-ok green"></i>
+					<strong class="green">
+					</strong>Maaf, Anda Sudah Mendaftar Sebanyak 1 Kali.</div>');
+				redirect('users/formkp');
+			}
 			}
 		}
 		public function download(){
@@ -224,7 +234,7 @@
 			foreach ($getcount->result() as $row) {
 				# code...
 			}
-			if($row->count<2){
+			if($row->count<1){
 				return true;
 			}else{
 				return false;
