@@ -7,8 +7,8 @@
 	<meta name="author" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-	<link rel="shortcut icon" href="<?php echo base_url()?>assets/images/logo%20itera%20oke.png"/>
-	<title>Jurusan Teknologi Produksi, Industri, dan Informasi</title>
+	<link rel="shortcut icon" href="<?php echo base_url()?>assets/images/LogoUI.png"/>
+	<title>Fakultas Farmasi Universitas Indonesia</title>
 
 	<link rel="stylesheet" href="assets/css/font-awesome/font-awesome.min.css">
 	<link rel="stylesheet" href="assets/css/font-awesome/font-awesome.css">
@@ -36,14 +36,14 @@
 		      <div class="row ">
 		        <div class="col-md-1">
 		            <a href="<?php echo base_url()?>">
-		              <img src="<?php echo base_url()?>assets/images/logo%20itera%20oke.png" width="70px" style="margin-bottom:10px; "/>
+		              <img src="<?php echo base_url()?>assets/images/LogoUI.png" width="70px" style="margin-bottom:10px; "/>
 
 		            </a>
 
 		        </div>
 		        <div class="col-md-5">
-		          <h3>Jurusan Teknologi Produksi, Industri, dan Informasi</h3>
-		          <p><em>"Institut Teknologi Sumatera"</em></p>
+		          <h3>Fakultas Farmasi Universitas Indonesia</h3>
+		          <p><em>"Universitas Indonesia"</em></p>
 		        </div>
 		        <div class="col-md-6">
 
